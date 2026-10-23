@@ -1,0 +1,31 @@
+{
+  "company_id": "BSR",
+  "auto_metric_candidates": false,
+  "require_source_basis_review": true,
+  "arithmetic_rules": [],
+  "comparison_routes": [
+    {"id": "esg_financial", "left": "sustainability_report", "right": "financial_statement", "dimensions": ["E", "S", "G"]},
+    {"id": "esg_annual", "left": "sustainability_report", "right": "annual_report", "dimensions": ["E", "S", "G"]}
+  ],
+  "metric_families": [
+    {"id": "profit_after_tax", "patterns": ["^(?:(?:ma so )?60 )?loi nhuan sau thue(?: |$)", "^li nhun sau thu thu nhp doanh nghi(?:e)?p 60 50 51 52(?: |$)"], "exclude_patterns": ["\\bco dong\\b", "\\bchua phan phoi\\b", "\\btrich quy\\b", "\\bquy khen thuong\\b"]},
+    {"id": "profit_before_tax", "patterns": ["loi nhuan.*truoc thue"]},
+    {"id": "revenue", "patterns": ["doanh thu"]},
+    {"id": "tax_budget", "patterns": ["nop.*ngan sach", "thue.*da nop"]},
+    {"id": "assets", "patterns": ["tong.*tai san"]},
+    {"id": "equity", "patterns": ["von chu so huu"]},
+    {"id": "employees", "patterns": ["^tong so lao dong$", "^tong so nhan vien$", "^tong s(?:o)? nhan vien (?:cua|ca) cong ty va cong ty con"]},
+    {"id": "energy_loss_rate", "patterns": ["^hao hut nang luong$", "^ty le tieu thu nang luong va hao hut$"]}
+  ],
+  "expected_reports": [
+    {"report_year": 2023, "report_type": "ESG", "financial_scope": null, "source_document_type": "sustainability_report"},
+    {"report_year": 2024, "report_type": "ESG", "financial_scope": null, "source_document_type": "sustainability_report"},
+    {"report_year": 2025, "report_type": "ESG", "financial_scope": null, "source_document_type": "sustainability_report"},
+    {"report_year": 2023, "report_type": "ESG", "financial_scope": null, "source_document_type": "annual_report"},
+    {"report_year": 2024, "report_type": "ESG", "financial_scope": null, "source_document_type": "annual_report"},
+    {"report_year": 2025, "report_type": "ESG", "financial_scope": null, "source_document_type": "annual_report"},
+    {"report_year": 2023, "report_type": "Financial", "financial_scope": "Consolidated", "source_document_type": "financial_statement"},
+    {"report_year": 2024, "report_type": "Financial", "financial_scope": "Consolidated", "source_document_type": "financial_statement"},
+    {"report_year": 2025, "report_type": "Financial", "financial_scope": "Consolidated", "source_document_type": "financial_statement"}
+  ]
+}

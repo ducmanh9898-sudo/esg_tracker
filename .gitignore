@@ -1,0 +1,48 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Secrets and local editor settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Dependencies and local design tooling
+node_modules/
+.superdesign/
+
+# User uploads, OCR models, jobs, database and delivery archives
+data/uploads/
+data/processed/
+data/models/
+data/raw/
+data/raw_pdf/
+data/sample/
+outputs/
+output/
+tmp/
+database/*.db
+database/*.db-*
+database/*.sqlite*
+*.log
+*.zip
+
+# Generated document/browser QA
+docs/user-manual/rendered*/
+playwright-report/
+test-results/
+htmlcov/
+.coverage
+coverage.xml
+

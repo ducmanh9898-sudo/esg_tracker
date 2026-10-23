@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.1",
+  "scope_note": "Inactive design example only. It is not loaded by the demo pipeline and cannot create a finding.",
+  "checks": [
+    {
+      "check_id": "FC01",
+      "name": "Environmental capital expenditure as a candidate subset of total capital expenditure",
+      "status": "candidate_inactive",
+      "esg_claim_selector": {
+        "metric_id": "environmental_capex"
+      },
+      "financial_disclosure_selector": {
+        "item_id": "capital_expenditure"
+      },
+      "join_conditions": [
+        {
+          "esg_field": "company_id",
+          "financial_field": "company.company_id",
+          "operator": "equal"
+        },
+        {
+          "esg_field": "report_year",
+          "financial_field": "reporting_period.fiscal_year",
+          "operator": "equal"
+        },
+        {
+          "esg_field": "scope",
+          "financial_field": "scope.scope_id",
+          "operator": "equal_verified"
+        },
+        {
+          "esg_field": "unit",
+          "financial_field": "unit",
+          "operator": "equal_or_verified_conversion"
+        }
+      ],
+      "candidate_comparison": {
+        "kind": "subset",
+        "expression": "esg.value <= financial.value",
+        "interpretation": "The comparison is meaningful only if the ESG amount is verified to be included in the financial total."
+      },
+      "activation_requirements": [
+        "A non-synthetic financial disclosure is supplied by Extract and passes the financial contract.",
+        "Company, reporting period and reporting scope are verified as aligned.",
+        "Currency, scale and unit conversion are verified.",
+        "The accounting classification confirms that the ESG amount is a subset of the selected financial line."
+      ],
+      "result_policy": {
+        "current_result": "not_run_no_finding",
+        "extract_not_found": "not_run_no_finding",
+        "confirmed_not_disclosed": "not_run_no_finding",
+        "failed_comparison_if_activated": "NeedsReview",
+        "contradiction_policy": "A missing financial line or unmatched candidate never creates Contradicted."
+      }
+    }
+  ]
+}

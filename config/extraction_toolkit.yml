@@ -1,0 +1,106 @@
+version: 1
+industry: "Oil and Gas"
+
+# Registry controls identity and subsector. Add another ticker here without
+# changing Python code. Aliases are matched case-insensitively in filenames.
+companies:
+  BSR:
+    name: "Công ty Cổ phần Lọc hóa dầu Bình Sơn"
+    aliases: ["BSR", "BINH_SON"]
+    subsector: "downstream_refining"
+  GAS:
+    name: "Tổng Công ty Khí Việt Nam"
+    aliases: ["GAS", "PV_GAS", "PVGAS"]
+    subsector: "midstream_gas"
+  PLX:
+    name: "Tập đoàn Xăng dầu Việt Nam"
+    aliases: ["PLX", "PETROLIMEX"]
+    subsector: "downstream_distribution"
+  PVD:
+    name: "Tổng Công ty Cổ phần Khoan và Dịch vụ Khoan Dầu khí"
+    aliases: ["PVD", "PV_DRILLING"]
+    subsector: "oilfield_services"
+
+filename_rules:
+  financial_prefixes: ["BCTC", "FS", "FINANCIAL_STATEMENTS"]
+  annual_report_prefixes: ["BCTN", "ANNUAL", "ANNUAL_REPORT"]
+  esg_prefixes: ["ESG", "SUSTAINABILITY", "PTBV"]
+  financial_folders: ["BCTC", "FINANCIAL_STATEMENTS"]
+  annual_report_folders: ["BCTN", "ANNUAL_REPORT"]
+  esg_folders: ["BCESG", "ESG", "SUSTAINABILITY"]
+  exclude_folders: ["Bộ tiêu chuẩn GRI", "GRI", "gri document"]
+  allow_unknown_companies: true
+
+extraction:
+  minimum_page_characters: 80
+  automatic_ocr: true
+  automatic_ocr_scale: 2.5
+  scan_page_max_native_characters: 180
+  minimum_claim_characters: 25
+  maximum_claim_characters: 900
+  repeated_line_page_ratio: 0.25
+  repeated_line_minimum_pages: 3
+  chunk_pages: 4
+
+claim_keywords:
+  - "phát thải"
+  - "khí nhà kính"
+  - "scope 1"
+  - "scope 2"
+  - "năng lượng"
+  - "nước"
+  - "chất thải"
+  - "tràn dầu"
+  - "an toàn"
+  - "tai nạn"
+  - "đào tạo"
+  - "cộng đồng"
+  - "quản trị"
+  - "tham nhũng"
+  - "mục tiêu"
+  - "cam kết"
+  - "doanh thu"
+  - "lợi nhuận"
+  - "tổng tài sản"
+  - "lưu chuyển tiền"
+  - "emissions"
+  - "energy"
+  - "water"
+  - "waste"
+  - "safety"
+  - "training"
+  - "community"
+  - "revenue"
+  - "profit after tax"
+  - "total assets"
+  - "operating cash flow"
+
+# Financial context is kept under pillar X. It supports reconciliation and
+# never becomes an environmental/social performance judgment by itself.
+additional_metrics:
+  FIN_REVENUE:
+    name: "Doanh thu"
+    dimension: "X"
+    topic: "X_FINANCIAL_CONTEXT"
+    standard_unit: "VND"
+    variants: ["doanh thu bán hàng", "doanh thu thuần", "revenue from sales", "net revenue"]
+  FIN_PAT:
+    name: "Lợi nhuận sau thuế"
+    dimension: "X"
+    topic: "X_FINANCIAL_CONTEXT"
+    standard_unit: "VND"
+    variants: ["lợi nhuận sau thuế", "profit after tax"]
+  FIN_TOTAL_ASSETS:
+    name: "Tổng tài sản"
+    dimension: "X"
+    topic: "X_FINANCIAL_CONTEXT"
+    standard_unit: "VND"
+    variants: ["tổng cộng tài sản", "tổng tài sản", "total assets"]
+  FIN_OPERATING_CASH_FLOW:
+    name: "Lưu chuyển tiền thuần từ hoạt động kinh doanh"
+    dimension: "X"
+    topic: "X_FINANCIAL_CONTEXT"
+    standard_unit: "VND"
+    variants: ["lưu chuyển tiền thuần từ hoạt động kinh doanh", "net cash from operating activities"]
+
+guardrail: "Đầu ra là dữ liệu ứng viên phục vụ phân tích. Không phải ý kiến kiểm toán, kết luận sai phạm hoặc kết luận greenwashing."

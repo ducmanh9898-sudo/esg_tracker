@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/esg/common-input-schema-v1.0.json",
+  "title": "ESG claim input record",
+  "type": "object",
+  "required": ["schema_version", "claim_id", "company_id", "report_year", "observation_year", "dimension", "topic", "claim_type", "metric_id", "label", "value", "unit", "scope", "evidence"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "claim_id": {"type": "string", "pattern": "^CLM-"},
+    "company_id": {"type": "string"},
+    "report_year": {"type": "integer"},
+    "observation_year": {"type": "integer"},
+    "dimension": {"enum": ["E", "S", "G"]},
+    "topic": {"type": "string"},
+    "claim_type": {"type": "string"},
+    "metric_id": {"type": "string"},
+    "label": {"type": "string"},
+    "value": {"type": ["number", "integer", "string", "boolean", "null"]},
+    "unit": {"type": "string"},
+    "scope": {"type": "string"},
+    "variant": {"type": "string"},
+    "period_type": {"enum": ["annual", "quarterly", "monthly", "instant", "other"]},
+    "reporting_boundary": {"type": ["string", "null"]},
+    "reporting_boundary_verified": {"type": "boolean"},
+    "boundary_change_status": {"enum": ["unchanged", "changed", "unknown"]},
+    "boundary_change_explanation": {"type": ["string", "null"]},
+    "scope_change_status": {"enum": ["unchanged", "changed", "unknown"]},
+    "scope_change_explanation": {"type": ["string", "null"]},
+    "baseline_id": {"type": ["string", "null"]},
+    "baseline_change_status": {"enum": ["unchanged", "changed", "unknown"]},
+    "baseline_change_explanation": {"type": ["string", "null"]},
+    "restatement_status": {"enum": ["not_restatement", "restated", "unknown"]},
+    "restatement_explanation": {"type": ["string", "null"]},
+    "review_status": {"enum": ["unreviewed", "reviewed"]},
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "source_file", "source_pages", "json_pointer"],
+        "properties": {
+          "evidence_id": {"type": "string", "pattern": "^EVD-"},
+          "source_file": {"type": "string"},
+          "source_pages": {"type": "array", "items": {"type": "integer"}, "minItems": 1},
+          "json_pointer": {"type": "string"},
+          "source_text": {"type": ["string", "null"]}
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

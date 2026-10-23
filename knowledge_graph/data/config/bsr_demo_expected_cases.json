@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "authored_by": "AI reviewer (AI source review; not human gold adjudication)",
+  "authored_before_demo_run": "2026-10-11",
+  "source_report_id": "BSR:2025:ESG:unknown:BSR_2025_esg.json",
+  "source_pdf": "data/source/pdf/BSR_2025_official.pdf",
+  "cases": [
+    {
+      "case_id": "BSR-2025-E-GHG",
+      "dimension": "E",
+      "rule_id": "KG-E-01",
+      "expected_outcome": "Skipped",
+      "claim_ids": [
+        "CLM-0D01A0724720",
+        "CLM-E5998E76E480",
+        "CLM-F4910997AD2B"
+      ],
+      "evidence_ids": [
+        "EVD-88EB1729C78C",
+        "EVD-8ED19444DA56",
+        "EVD-25131859C4E9"
+      ],
+      "values": [
+        1780388,
+        2210,
+        1790388
+      ],
+      "unit": "tCO2e",
+      "observation_year": 2025,
+      "scope_boundary": "Báo cáo dùng cách gọi Nhà máy/BSR; chưa rõ ranh giới tổ chức, hợp nhất và cơ sở tính phát thải",
+      "extract_source_pages": [
+        [
+          29,
+          65
+        ],
+        [
+          65
+        ],
+        [
+          65
+        ]
+      ],
+      "official_pdf_physical_pages": [
+        56,
+        128,
+        129
+      ],
+      "verified": "PDF trang vật lý 56 và 128 ghi Scope 1 là 1.780.388 và Scope 2 là 2.210; trang 129 ghi biến thể Scope 1 là 1.790.388 và lượng KNK 1.792.598 với nhãn tổng quát.",
+      "missing": "Nguồn chưa định nghĩa rõ vai trò tổng Scope 1 + Scope 2; chưa adjudicate biến thể, boundary và precision. Số 1.782.598 do Extract tự tính không phải tổng được công bố.",
+      "rationale": "Không chọn tùy tiện một biến thể Scope 1 hay suy diễn định nghĩa tổng; rule phải ghi Skipped, không kết luận mâu thuẫn số học."
+    },
+    {
+      "case_id": "BSR-2025-S-WORKFORCE",
+      "dimension": "S",
+      "rule_id": "KG-S-01",
+      "expected_outcome": "NeedsReview",
+      "claim_ids": [
+        "CLM-08082F5B81CD",
+        "CLM-B7EB563E51B8"
+      ],
+      "evidence_ids": [
+        "EVD-E113234E5811",
+        "EVD-E3ECF6AD54E1"
+      ],
+      "values": [
+        1594,
+        214
+      ],
+      "unit": "person",
+      "observation_year": 2025,
+      "scope_boundary": "Bảng nhân sự BSR; chưa xác minh ranh giới tổ chức và mã quần thể lao động",
+      "extract_source_pages": [
+        [
+          39,
+          66
+        ],
+        [
+          39,
+          66
+        ]
+      ],
+      "official_pdf_physical_pages": [
+        76,
+        130
+      ],
+      "verified": "PDF trang vật lý 76 ghi tổng 1.594 và nữ 214 cho năm 2025, đơn vị Người, cùng nhóm Quy mô lao động. AI reviewer đã đối chiếu giá trị và áp dụng riêng comparison_frame_id/population_id của nhóm bảng; context tổng thể vẫn pending.",
+      "missing": "Ngày snapshot chính xác vẫn unknown nhưng khung bảng/cột 2025 đã được kiểm tra. Chưa rõ hai số dùng cùng phương pháp đếm headcount/FTE/trung bình, định nghĩa kỳ và ranh giới pháp nhân; human adjudication vẫn pending.",
+      "rationale": "214 ≤ 1.594 về số học và hai số cùng nhóm bảng; context được áp dụng riêng cho khung nguồn/quần thể nội bộ bảng, nhưng Supported vẫn cần xác minh phương pháp đếm, kỳ và boundary. Nam+nữ lệch tổng 27 là issue riêng, không là guard KG-S-01."
+    },
+    {
+      "case_id": "BSR-2025-G-BOARD",
+      "dimension": "G",
+      "rule_id": "KG-G-01",
+      "expected_outcome": "Supported",
+      "claim_ids": [
+        "CLM-936FE665DA79",
+        "CLM-ECD3B116A03A"
+      ],
+      "evidence_ids": [
+        "EVD-D66F09A80222",
+        "EVD-1D7056BC28CC"
+      ],
+      "values": [
+        7,
+        2
+      ],
+      "unit": "person",
+      "observation_year": 2025,
+      "scope_boundary": "Hội đồng quản trị BSR, cùng phát biểu trong năm 2025; ngày snapshot chính xác chưa rõ",
+      "extract_source_pages": [
+        [
+          50,
+          51,
+          66
+        ],
+        [
+          50,
+          51,
+          66
+        ]
+      ],
+      "official_pdf_physical_pages": [
+        98,
+        99
+      ],
+      "verified": "PDF chính thức trang vật lý 98 nêu trong cùng một câu HĐQT BSR có 7 thành viên, trong đó 2 thành viên độc lập. Hai số có cùng board, tập đối chiếu và khung phát biểu. Trang 99 mô tả thay đổi thành viên trong năm, không phủ nhận quan hệ tập con của câu trên.",
+      "missing": "Ngày snapshot chính xác, danh sách tại nhiệm sau thay đổi và tiêu chí pháp lý của thành viên độc lập chưa được xác minh; không cần cho phép kiểm tra tập con 2≤7 của chính phát biểu đó. Human adjudication của pilot vẫn pending.",
+      "rationale": "Nguồn nói rõ trong cùng phát biểu 2 thành viên độc lập thuộc tổng 7 thành viên của cùng HĐQT BSR. KG-G-01 chỉ xác nhận 2≤7 cho phát biểu này; không đánh giá tuân thủ pháp luật hay chất lượng quản trị."
+    }
+  ],
+  "revised_at": "2026-10-11T02:51:02Z",
+  "revision_basis": "KG-G-01 comparison semantics reviewed against the same explicit BSR board sentence on official PDF physical page 98 before the final demo rerun; exact date remains unknown. Human pilot adjudication is still pending. E and S expectations are unchanged."
+}

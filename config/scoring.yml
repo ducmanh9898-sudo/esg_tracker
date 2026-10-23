@@ -1,0 +1,13 @@
+weights:
+  contradiction: 0.35
+  evidence_gap: 0.25
+  vagueness: 0.15
+  target_integrity: 0.15
+  temporal_consistency: 0.10
+bands:
+  - {min: 0, max: 29.999, label: "Thấp"}
+  - {min: 30, max: 59.999, label: "Trung bình"}
+  - {min: 60, max: 79.999, label: "Cao"}
+  - {min: 80, max: 100, label: "Rất cao"}
+severity_weights: {1: 0.2, 2: 0.4, 3: 0.6, 4: 0.8, 5: 1.0}
+

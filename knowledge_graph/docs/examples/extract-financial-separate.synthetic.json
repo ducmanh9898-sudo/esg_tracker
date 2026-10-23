@@ -1,0 +1,41 @@
+{
+  "schema_version": "extract-financial-1.0",
+  "synthetic_example": true,
+  "document": {
+    "document_key": "EXAMPLE_2025_FS_SEPARATE",
+    "company_id": "EXAMPLE",
+    "report_year": 2025,
+    "financial_statement_scope": "Separate",
+    "source_file": "EXAMPLE_2025_FS_Separate.synthetic.pdf",
+    "source_locator": "synthetic://EXAMPLE_2025_FS_Separate.pdf",
+    "reporting_date": "2025-12-31",
+    "publication_date": null,
+    "extraction_timestamp": "2026-01-15T11:00:00Z",
+    "claim_count": 1
+  },
+  "coverage": {"status": "partial", "review_status": "unreviewed", "pages_checked": [2]},
+  "structured_key_metrics": [
+    {
+      "record_id": "EX-FIN-REVENUE",
+      "metric_code": "revenue",
+      "metric_name": "Revenue",
+      "dimension": "X",
+      "unit": "VND",
+      "unit_multiplier": 1000000,
+      "measurements": [
+        {"measurement_id": "REVENUE-2025", "period": 2025, "period_type": "annual", "value": 125, "unit": "VND", "unit_multiplier": 1000000},
+        {"measurement_id": "REVENUE-2024", "period": 2024, "period_type": "annual", "value": 110, "unit": "VND", "unit_multiplier": 1000000}
+      ],
+      "source_page": 2,
+      "claim_text": "Synthetic OCR example: revenue, 125 and comparative 110, unit million VND.",
+      "review_status": "unreviewed",
+      "confidence": 0.7,
+      "extraction_notes": "Synthetic values; column alignment has not been manually reviewed.",
+      "extraction_status": "candidate"
+    }
+  ],
+  "monetary_groups": [],
+  "numeric_occurrences": [],
+  "pages": [{"page_number": 2, "text": "Synthetic OCR example: revenue 2025 125; 2024 110; million VND."}],
+  "issue_log": [{"issue_id": "EX-FIN-ISSUE-1", "record_id": "EX-FIN-REVENUE", "type": "column_alignment_unreviewed", "status": "open"}]
+}

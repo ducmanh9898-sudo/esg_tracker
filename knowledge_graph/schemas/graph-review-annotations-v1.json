@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Graph review annotations v1",
+  "type": "object",
+  "required": ["schema_version", "source_reviews", "mapping_reviews", "context_reviews"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "purpose": {"type": "string"},
+    "source_reviews": {"type": "array", "items": {"$ref": "#/$defs/sourceReview"}},
+    "mapping_reviews": {"type": "array", "items": {"$ref": "#/$defs/mappingReview"}},
+    "context_reviews": {"type": "array", "items": {"$ref": "#/$defs/contextReview"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nullableText": {"type": ["string", "null"]},
+    "reference": {
+      "type": "object",
+      "required": ["evidence_id", "source_file", "source_pages", "json_pointer", "original_text"],
+      "properties": {
+        "evidence_id": {"$ref": "#/$defs/nullableText"},
+        "source_file": {"$ref": "#/$defs/nullableText"},
+        "source_pages": {"type": "array", "items": {"type": ["integer", "string"]}},
+        "json_pointer": {"$ref": "#/$defs/nullableText"},
+        "original_text": {"$ref": "#/$defs/nullableText"}
+      },
+      "additionalProperties": false
+    },
+    "base": {
+      "type": "object",
+      "required": ["annotation_id", "company_id", "report_id", "record_id", "extract_path", "extract_sha256", "source_refs", "status", "reviewer", "reviewed_at", "review_basis"],
+      "properties": {
+        "annotation_id": {"type": "string", "minLength": 1},
+        "company_id": {"type": "string", "minLength": 1},
+        "report_id": {"type": "string", "minLength": 1},
+        "record_id": {"type": "string", "minLength": 1},
+        "extract_path": {"$ref": "#/$defs/nullableText"},
+        "extract_sha256": {"anyOf": [{"type": "string", "pattern": "^[a-f0-9]{64}$"}, {"type": "null"}]},
+        "source_refs": {"type": "array", "items": {"$ref": "#/$defs/reference"}},
+        "status": {"enum": ["pending", "reviewed", "verified", "rejected"]},
+        "reviewer": {"$ref": "#/$defs/nullableText"},
+        "reviewed_at": {"anyOf": [{"type": "string", "format": "date-time"}, {"type": "null"}]},
+        "review_basis": {"$ref": "#/$defs/nullableText"},
+        "missing_fields": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "sourceReview": {"allOf": [{"$ref": "#/$defs/base"}, {"type": "object", "properties": {"status": {"enum": ["pending", "reviewed", "rejected"]}}}]},
+    "mappingReview": {"allOf": [{"$ref": "#/$defs/base"}, {"type": "object", "required": ["alias_id"], "properties": {"alias_id": {"type": "string", "minLength": 1}, "status": {"enum": ["pending", "verified", "rejected"]}}}]},
+    "contextReview": {"allOf": [{"$ref": "#/$defs/base"}, {"type": "object", "required": ["rule_id", "fields"], "properties": {"rule_id": {"enum": ["KG-E-01", "KG-S-01", "KG-G-01"]}, "status": {"enum": ["pending", "verified", "rejected"]}, "fields": {"$ref": "#/$defs/contextFields"}, "frame_source": {"type": "object", "required": ["source_path", "source_sha256", "physical_page", "quote", "subject_phrase", "subset_phrase", "display_value"], "properties": {"source_path": {"type": "string", "minLength": 1}, "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "physical_page": {"type": "integer", "minimum": 1}, "quote": {"type": "string", "minLength": 1}, "subject_phrase": {"type": "string", "minLength": 1}, "subset_phrase": {"type": "string", "minLength": 1}, "display_value": {"type": "string", "minLength": 1}}, "additionalProperties": false}, "field_reviews": {"type": "object", "additionalProperties": {"type": "object", "required": ["status", "basis", "source_evidence_ids"], "properties": {"status": {"enum": ["source_supported", "partial", "unresolved", "conflict"]}, "basis": {"type": "string", "minLength": 1}, "source_evidence_ids": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": false}}}}]},
+    "contextFields": {
+      "type": "object",
+      "properties": {
+        "observation_year": {"type": ["integer", "null"]},
+        "period_type": {"$ref": "#/$defs/nullableText"},
+        "reporting_boundary": {"$ref": "#/$defs/nullableText"},
+        "unit": {"$ref": "#/$defs/nullableText"},
+        "variant": {"$ref": "#/$defs/nullableText"},
+        "metric_definition": {"$ref": "#/$defs/nullableText"},
+        "scope": {"$ref": "#/$defs/nullableText"},
+        "organizational_scope": {"$ref": "#/$defs/nullableText"},
+        "emission_basis": {"$ref": "#/$defs/nullableText"},
+        "scope2_method": {"$ref": "#/$defs/nullableText"},
+        "calculation_method": {"$ref": "#/$defs/nullableText"},
+        "precision": {"anyOf": [{"type": "null"}, {"type": "object", "required": ["mode", "source_basis"], "properties": {"mode": {"enum": ["exact", "rounded_half_up"]}, "source_basis": {"type": "string"}, "step": {"type": ["number", "string", "null"]}}, "additionalProperties": false}]},
+        "population_id": {"$ref": "#/$defs/nullableText"},
+        "board_id": {"$ref": "#/$defs/nullableText"},
+        "counting_method": {"$ref": "#/$defs/nullableText"},
+        "measurement_date": {"$ref": "#/$defs/nullableText"},
+        "comparison_frame_id": {"$ref": "#/$defs/nullableText"},
+        "baseline_id": {"$ref": "#/$defs/nullableText"},
+        "total_definition": {"$ref": "#/$defs/nullableText"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

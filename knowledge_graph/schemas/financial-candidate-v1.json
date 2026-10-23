@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized Graph financial candidate v1",
+  "type": "object",
+  "required": ["record_type", "disclosure_id", "company_id", "report_year", "source_report_id", "graph_dimension", "item", "value_status", "scope", "reporting_period", "observation_year", "source_pointer", "review_status", "review_reasons"],
+  "properties": {
+    "record_type": {"const": "financial_candidate"},
+    "disclosure_id": {"type": "string", "minLength": 1},
+    "company_id": {"type": "string", "minLength": 1},
+    "report_year": {"type": "integer"},
+    "source_report_id": {"type": "string", "minLength": 1},
+    "source_record_id": {"type": ["string", "null"]},
+    "source_measurement_id": {"type": ["string", "null"]},
+    "graph_dimension": {"const": "financial_context"},
+    "item": {"type": "object", "required": ["item_id"], "properties": {"item_id": {"type": ["string", "null"]}}, "additionalProperties": true},
+    "value": {"type": ["number", "null"]},
+    "value_status": {"enum": ["available", "missing", "ambiguous", "unknown", "not_applicable"]},
+    "unit": {"type": ["string", "null"]},
+    "unit_multiplier": {"type": ["number", "null"]},
+    "scope": {"type": "object", "required": ["scope_id", "verification_status"], "properties": {"scope_id": {"enum": ["separate_parent", "consolidated_group"]}, "verification_status": {"type": "string"}}, "additionalProperties": true},
+    "reporting_period": {"type": "object", "required": ["fiscal_year", "period_type"], "properties": {"fiscal_year": {"type": ["integer", "null"]}, "period_type": {"type": ["string", "null"]}}, "additionalProperties": true},
+    "observation_year": {"type": ["integer", "null"]},
+    "source_pointer": {"type": "string"},
+    "source_file": {"type": ["string", "null"]},
+    "source_pages": {"type": "array", "items": {"type": "integer"}},
+    "original_text": {"type": ["string", "null"]},
+    "review_status": {"type": "string"},
+    "review_reasons": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

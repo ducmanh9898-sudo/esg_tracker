@@ -1,0 +1,188 @@
+# Design data dictionary only. Not loaded by the current extraction runtime.
+contract_version: esg-extract/2.1.0-draft
+implementation_status: design_only
+graph_interface_status: pending_agreement
+source_requirements: 'C:\Users\THINKPAD\Documents\requirementsESG (1).docx'
+demo:
+  companies: [BSR, PLX, PVD]
+  years: inventory_driven
+  report_types: [sustainability, financial_statements]
+  mixed_report_routing: section_level
+
+collections:
+  - batch
+  - companies
+  - reports
+  - source_artifacts
+  - source_blocks
+  - records
+  - evidence
+  - links
+  - coverage
+  - issues
+
+enums:
+  data_status: [available, missing, ambiguous, not_applicable, unknown, extraction_failure]
+  review_status: [unreviewed, needs_review, verified]
+  record_type: [claim, metric, measurement, target, policy, action, governance, financial_context, unknown]
+  pillar: [E, S, G, unknown]
+  domain: [esg, financial, esg_financial, unknown]
+  statement_scope: [separate, consolidated, unknown]
+  page_status: [pending, processed, partial, failed, confirmed_blank]
+  link_status: [candidate, confirmed, unresolved]
+  job_status: [queued, running, partial, failed, completed, cancelled]
+
+report_fields:
+  - report_id
+  - report_version_id
+  - company_id
+  - company_name
+  - reported_entity
+  - source_filename
+  - source_sha256
+  - source_access
+  - report_type
+  - reporting_period
+  - publication_date
+  - report_scope
+  - field_status
+
+common_record_fields:
+  - record_id
+  - company_id
+  - reported_entity
+  - report_id
+  - report_version_id
+  - record_type
+  - type_candidates
+  - domain
+  - original_text
+  - original_cells
+  - source_refs
+  - display_text
+  - interpretation_notes
+  - classification
+  - content_period
+  - boundary
+  - payload
+  - data_status
+  - field_status
+  - missing_fields
+  - issue_ids
+  - review
+
+source_anchor_fields:
+  - anchor_id
+  - artifact_id
+  - artifact_sha256
+  - native_json_pointer
+  - pdf_page
+  - printed_page_raw
+  - printed_page_label
+  - section
+  - table_id
+  - table_name_raw
+  - row_index
+  - column_index
+  - bbox
+  - coordinate_system
+  - text_span
+
+record_payloads:
+  claim: [statement, actor, action, object, qualifier]
+  metric: [original_name, code_candidates, definition, methodology]
+  measurement:
+    - metric_record_id
+    - raw_value
+    - parsed_value
+    - raw_unit
+    - unit
+    - currency
+    - scale
+    - normalized_value
+    - normalized_unit
+    - dimensions
+    - value_kind
+    - numerator
+    - denominator
+    - formula
+    - statement_type
+    - statement_scope
+    - item_code_raw
+    - row_label_raw
+    - column_headers_raw
+    - period_role
+    - restatement_status
+  target: [statement, raw_value, parsed_value, unit, deadline, target_year, baseline_year, baseline_value]
+  policy: [statement, effective_period, applicable_scope]
+  action: [activity, beneficiaries, time, disclosed_results, measurement_record_ids]
+  governance: [responsible_body, responsible_person, role, oversight_mechanism, reporting_frequency]
+  financial_context: [statement, context_type, financial_record_ids]
+  unknown: [unclassified_content, reason]
+
+boundary_fields:
+  - entities
+  - activities
+  - sites
+  - included_entities
+  - excluded_entities
+  - consolidation_method
+  - source_refs
+  - missing_fields
+
+period_fields: [raw_text, year, start_date, end_date, as_of_date, period_type, source_refs]
+classification_fields: [pillar, topic_candidates, codebook_version, source_refs]
+review_fields: [status, verified_fields, reviewer, reviewed_at, method, history]
+field_status_fields: [status, reason, source_refs, candidate_values]
+evidence_fields: [evidence_id, report_version_id, original_text, source_refs, record_ids, data_status, review]
+link_fields: [link_id, from_id, to_id, relation_type, status, source_refs, comparison_conditions, incompatibilities]
+issue_fields: [issue_id, record_id, report_version_id, field_pointer, source_refs, code, reason, severity, status]
+link_relations:
+  - metric_measurement
+  - candidate_evidence
+  - target_progress
+  - restates
+  - supersedes
+  - definition_change
+  - methodology_change
+  - unit_change
+  - boundary_change
+  - baseline_change
+  - esg_financial_candidate
+
+branches:
+  esg:
+    input: all_source_blocks
+    record_types: [claim, metric, measurement, target, policy, action, governance, financial_context, unknown]
+    numeric_content_required: false
+    classify_esg: candidate_only
+  financial:
+    input: all_source_blocks
+    primary_record_types: [metric, measurement, financial_context, unknown]
+    qualitative_record_types_when_relevant: [claim, target, policy, action, governance]
+    classify_pure_financial_as_esg: false
+    table_filter: none
+    preserve_unmapped_items: true
+  reconciliation:
+    link_default_status: candidate
+    company_and_year_sufficient_for_match: false
+    required_comparison_checks: [content_period, boundary, definition, unit, currency, scale]
+    retain_records_without_counterpart: true
+
+policies:
+  pdf_page_index_base: 1
+  native_table_offset_index_base: 0
+  parsed_decimal_representation: string
+  preserve_null: true
+  blank_or_dash_is_zero: false
+  inherit_unit_only_with_source_context: true
+  default_report_year_as_measurement_year: false
+  infer_kpi_boundary_from_general_materiality_scope: false
+  use_financial_scope_to_fill_esg_boundary: false
+  preserve_source_text_on_review_edit: true
+  derived_text_in_original_text: false
+  missing_fields_source_of_truth: field_status
+  default_review_status: unreviewed
+  failure_is_absence_of_disclosure: false
+  auto_conclude_greenwashing: false
+  upload_documents_to_cloud_by_default: false

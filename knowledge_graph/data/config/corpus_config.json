@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "industry_profile": "profiles/oil_gas.json",
+  "reports": [
+    {
+      "company_id": "BSR",
+      "report_year": 2023,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/BSR_2023_esg.json",
+      "adapter": "curated_selection",
+      "coverage": "selected_claims",
+      "reason": "Structured E/S/G extract with page locators; curated claim selection retains distinct variants.",
+      "identity_path": "esg/BSR_2023_esg.json"
+    },
+    {
+      "company_id": "BSR",
+      "report_year": 2024,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/BSR_2024_esg.json",
+      "adapter": "curated_selection",
+      "coverage": "selected_claims",
+      "reason": "Structured E/S/G extract with page locators; curated selection available.",
+      "identity_path": "esg/BSR_2024_esg.json"
+    },
+    {
+      "company_id": "BSR",
+      "report_year": 2025,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/BSR_2025_esg.json",
+      "adapter": "curated_selection",
+      "coverage": "selected_claims",
+      "reason": "Structured E/S/G extract with page locators; curated selection retains alternative Scope 1 values.",
+      "identity_path": "esg/BSR_2025_esg.json"
+    },
+    {
+      "company_id": "PLX",
+      "report_year": 2023,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/PLX_2023_esg.json",
+      "adapter": "structured_esg",
+      "coverage": "structured_extract",
+      "reason": "Available structured extract with E/S/G and PDF page locators.",
+      "identity_path": "esg/PLX_2023_esg.json"
+    },
+    {
+      "company_id": "PLX",
+      "report_year": 2024,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/PLX_2024_esg.json",
+      "adapter": "structured_esg",
+      "coverage": "structured_extract",
+      "reason": "Available structured extract with E/S/G and PDF page locators.",
+      "identity_path": "esg/PLX_2024_esg.json"
+    },
+    {
+      "company_id": "PLX",
+      "report_year": 2025,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/PLX_2025_esg.json",
+      "adapter": "structured_esg",
+      "coverage": "structured_extract",
+      "reason": "Available structured extract with source pages and richer original-value metadata.",
+      "identity_path": "esg/PLX_2025_esg.json"
+    },
+    {
+      "company_id": "PVD",
+      "report_year": 2023,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/PVD_2023_esg_101_120.json",
+      "adapter": "structured_esg",
+      "coverage": "partial_pages_101_120",
+      "reason": "Only the ESG page-range extract is available for this year.",
+      "identity_path": "esg/PVD_2023_esg_101_120.json"
+    },
+    {
+      "company_id": "PVD",
+      "report_year": 2024,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/PVD_2024_esg_120_144.json",
+      "adapter": "structured_esg",
+      "coverage": "partial_pages_120_144",
+      "reason": "Only the ESG page-range extract is available for this year.",
+      "identity_path": "esg/PVD_2024_esg_120_144.json"
+    },
+    {
+      "company_id": "PVD",
+      "report_year": 2025,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "data/extract/esg/PVD_2025_esg.json",
+      "adapter": "structured_esg",
+      "coverage": "structured_extract",
+      "reason": "Wider structured report with source locators; same-PDF page-range extract retained as overlap for review.",
+      "overlaps": [
+        "data/extract/esg/PVD_2025_esg_120_134.json"
+      ],
+      "identity_path": "esg/PVD_2025_esg.json"
+    },
+    {
+      "company_id": "BSR",
+      "report_year": 2023,
+      "report_type": "Financial",
+      "reporting_entity": "consolidated_group",
+      "path": "data/extract/financial/BCTC_BSR_2023_esg.json",
+      "adapter": "bsr_financial",
+      "coverage": "structured_extract",
+      "reason": "Corresponding-year consolidated financial extract."
+    },
+    {
+      "company_id": "BSR",
+      "report_year": 2024,
+      "report_type": "Financial",
+      "reporting_entity": "consolidated_group",
+      "path": "data/extract/financial/BCTC_BSR_2024_esg.json",
+      "adapter": "bsr_financial",
+      "coverage": "structured_extract",
+      "reason": "Corresponding-year consolidated financial extract."
+    },
+    {
+      "company_id": "BSR",
+      "report_year": 2025,
+      "report_type": "Financial",
+      "reporting_entity": "consolidated_group",
+      "path": "data/extract/financial/BCTC_BSR_2025_esg.json",
+      "adapter": "bsr_financial",
+      "coverage": "structured_extract",
+      "reason": "Corresponding-year consolidated financial extract; kept distinct from the separate statement."
+    },
+    {
+      "company_id": "BSR",
+      "report_year": 2025,
+      "report_type": "Financial",
+      "reporting_entity": "separate_parent",
+      "path": "data/extract/financial/BSR_2025_BCTC_rieng_full.json",
+      "adapter": "bsr_separate_full",
+      "coverage": "four_unreviewed_structured_candidates_with_2024_comparatives",
+      "reason": "Full separate-statement OCR extract; only structured_key_metrics have period mapping, and all require human review."
+    }
+  ],
+  "selection_files": {
+    "BSR": "data/config/selection.json"
+  },
+  "rule_sets": {
+    "BSR": "data/config/rules.json"
+  },
+  "ready_rule_aliases": "data/config/ready_rule_aliases.json",
+  "graph_review_annotations": "data/review/ready_rule_annotations.json",
+  "unresolved": [
+    {
+      "file": "data/extract/esg/PVD_2025_esg_120_134.json",
+      "status": "overlapping_same_pdf",
+      "reason": "Retained for provenance review; not ingested as a second report."
+    }
+  ],
+  "extract_manifest": "data/extract/manifest.json"
+}

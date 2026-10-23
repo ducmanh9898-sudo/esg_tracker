@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "note": "Observed BSR/PLX/PVD metric IDs are candidate aliases only. No source statement or boundary has been manually reviewed for these mappings.",
+  "aliases": [
+    {"rule_id":"KG-E-01","metric_id":"ghg_scope1","role":"scope1_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"ghg_scope2","role":"scope2_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"scope_1","role":"scope1_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"scope_1_direct","role":"scope1_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"scope_2","role":"scope2_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"scope_2_indirect","role":"scope2_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"scope_1_and_2_total","role":"scope1_plus_scope2_total","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"total_operational_emissions_scope_1_and_2","role":"scope1_plus_scope2_total","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"ghg_emissions_scope_1_tco2e","role":"scope1_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"ghg_emissions_scope_2_tco2e","role":"scope2_emissions","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"ghg_emissions_scope_1_and_2_tco2e","role":"scope1_plus_scope2_total","verification_status":"candidate"},
+    {"rule_id":"KG-E-01","metric_id":"ghg_emissions_scope_1_and_2_total_tco2e","role":"scope1_plus_scope2_total","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"employees_female","role":"employees_female_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"employees_total","role":"employees_total_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"workforce_by_gender_female","role":"employees_female_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"workforce_profile_by_gender_female_count","role":"employees_female_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"workforce_total","role":"employees_total_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"workforce_profile_total_employees","role":"employees_total_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"workforce_and_inclusion_female_employees","role":"employees_female_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"workforce_employees","role":"employees_total_count","verification_status":"candidate"},
+    {"rule_id":"KG-S-01","metric_id":"workforce_total_employees","role":"employees_total_count","verification_status":"candidate"},
+    {"rule_id":"KG-G-01","metric_id":"board_independent","role":"board_independent_count","verification_status":"candidate"},
+    {"rule_id":"KG-G-01","metric_id":"board_total","role":"board_total_count","verification_status":"candidate"},
+    {"rule_id":"KG-G-01","metric_id":"board_independent_members","role":"board_independent_count","verification_status":"candidate"},
+    {"rule_id":"KG-G-01","metric_id":"board_members","role":"board_total_count","verification_status":"candidate"},
+    {"rule_id":"KG-G-01","metric_id":"board_structure_and_composition_independent_members","role":"board_independent_count","verification_status":"candidate"},
+    {"rule_id":"KG-G-01","metric_id":"board_structure_and_composition_total_members","role":"board_total_count","verification_status":"candidate"}
+  ]
+}

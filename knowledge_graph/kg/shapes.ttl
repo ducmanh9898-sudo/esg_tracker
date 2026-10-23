@@ -1,0 +1,23 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix esg: <https://example.org/esg/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+esg:ClaimIdentityShape a sh:NodeShape ;
+  sh:targetClass esg:Claim ;
+  sh:property [ sh:path esg:recordId ; sh:minCount 1 ; sh:severity sh:Violation ] ;
+  sh:property [ sh:path esg:fromReport ; sh:minCount 1 ; sh:severity sh:Violation ] ;
+  sh:property [ sh:path esg:hasEvidence ; sh:minCount 1 ; sh:severity sh:Warning ] .
+
+esg:EvidenceLocatorShape a sh:NodeShape ;
+  sh:targetClass esg:Evidence ;
+  sh:property [ sh:path esg:sourceFile ; sh:minCount 1 ; sh:severity sh:Violation ] ;
+  sh:or (
+    [ sh:property [ sh:path esg:jsonPointer ; sh:minCount 1 ] ]
+    [ sh:property [ sh:path esg:sourcePage ; sh:minCount 1 ] ]
+  ) .
+
+esg:AvailableValueShape a sh:NodeShape ;
+  sh:targetClass esg:Measurement ;
+  sh:sparql [ sh:message "Available measurement requires a value literal." ;
+    sh:severity sh:Violation ;
+    sh:select """SELECT $this WHERE { $this <https://example.org/esg/core#valueStatus> \"available\" . FILTER NOT EXISTS { $this <https://example.org/esg/core#numericValue>|<https://example.org/esg/core#textValue> ?v } }""" ] .

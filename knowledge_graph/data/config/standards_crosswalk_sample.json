@@ -1,0 +1,179 @@
+{
+  "schema_version": "0.1",
+  "scope_note": "Sample crosswalk for two canonical concepts only. A relationship does not assert compliance, non-compliance, or complete disclosure.",
+  "concepts": [
+    {
+      "concept_id": "scope1_ghg_emissions",
+      "name": "Reported Scope 1 greenhouse gas emissions",
+      "description": "A reported quantitative amount for direct Scope 1 greenhouse gas emissions.",
+      "claim_match": {
+        "metric_id": [
+          "ghg_scope1"
+        ]
+      }
+    },
+    {
+      "concept_id": "chair_ceo_role_separation",
+      "name": "Separation of chair and chief executive roles",
+      "description": "A statement about whether the chair and chief executive roles are held separately.",
+      "claim_match": {
+        "metric_id": [
+          "chair_ceo_separate"
+        ]
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "mapping_id": "map-scope1-gri-305-1",
+      "concept_id": "scope1_ghg_emissions",
+      "reference_id": "gri-305-1-2016",
+      "reference_code": "Disclosure 305-1",
+      "reference_title": "Direct (Scope 1) GHG emissions",
+      "standard_name": "GRI 305: Emissions",
+      "standard_version": "2016",
+      "source_type": "standard",
+      "source_document": "GRI 305: Emissions 2016",
+      "source_url": "https://www.globalreporting.org/publications/documents/english/gri-305-emissions-2016/",
+      "relationship_type": "partially_addresses",
+      "mapping_reason": "The concept addresses only part of Disclosure 305-1 and does not assert a complete disclosure.",
+      "covered_aspects": [
+        "A quantitative amount labelled as Scope 1 greenhouse gas emissions",
+        "A value expressed in tCO2e for an observation period"
+      ],
+      "unverified_aspects": [
+        "Whether the amount is gross before offsets or credits",
+        "Gases included and separate biogenic CO2",
+        "Base year, emission factors, GWP source and calculation method",
+        "Consolidation approach and reporting boundary"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "mapping_id": "map-scope1-ifrs-s2-29-a-i-1",
+      "concept_id": "scope1_ghg_emissions",
+      "reference_id": "ifrs-s2-29-a-i-1-2023",
+      "reference_code": "IFRS S2 29(a)(i)(1)",
+      "reference_title": "Scope 1 greenhouse gas emissions",
+      "standard_name": "IFRS S2 Climate-related Disclosures",
+      "standard_version": "June 2023",
+      "source_type": "standard",
+      "source_document": "IFRS S2 Climate-related Disclosures, Part A",
+      "source_url": "https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards-issb/english/2023/issued/part-a/issb-2023-a-ifrs-s2-climate-related-disclosures.pdf?bypass=on",
+      "relationship_type": "partially_addresses",
+      "mapping_reason": "The concept addresses the Scope 1 quantitative element only; it does not establish that all paragraph 29(a) measurement and disclosure conditions are met.",
+      "covered_aspects": [
+        "A quantitative amount labelled as Scope 1 greenhouse gas emissions",
+        "A value expressed in tCO2e"
+      ],
+      "unverified_aspects": [
+        "Whether the amount is absolute and gross for the reporting period",
+        "Reporting boundary and period alignment",
+        "Measurement method and the other disclosures required by paragraph 29(a)"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "mapping_id": "map-scope1-ifrs-s2-ibg-em-rm-110a-1",
+      "concept_id": "scope1_ghg_emissions",
+      "reference_id": "ifrs-s2-ibg-em-rm-110a-1-2023",
+      "reference_code": "EM-RM-110a.1",
+      "reference_title": "Gross global Scope 1 emissions, percentage covered under emissions-limiting regulations",
+      "standard_name": "IFRS S2 Industry-based Guidance—Oil & Gas – Refining & Marketing",
+      "standard_version": "June 2023",
+      "source_type": "industry_based_guidance",
+      "source_document": "IFRS S2 Industry-based Guidance, Volume 13—Oil & Gas – Refining & Marketing",
+      "source_url": "https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards-issb/english/2023/issued/part-b/ifrs-s2-ibg-volume-13-oil-and-gas-refining-and-marketing-part-b.pdf?bypass=on",
+      "relationship_type": "partially_addresses",
+      "mapping_reason": "The concept addresses only the Scope 1 amount component shown in the industry-based guidance. It does not establish complete disclosure or industry applicability.",
+      "covered_aspects": [
+        "A quantitative amount labelled as Scope 1 greenhouse gas emissions",
+        "A value expressed in tCO2e"
+      ],
+      "unverified_aspects": [
+        "Whether the amount is gross and global for the relevant reporting boundary",
+        "Percentage covered under emissions-limiting regulations",
+        "Measurement protocol and completeness of the guidance metric",
+        "Applicability of the Oil & Gas – Refining & Marketing industry guidance to the reporting entity"
+      ],
+      "industry_applicability_status": "unverified",
+      "verification_status": "verified"
+    },
+    {
+      "mapping_id": "map-scope1-sasb-em-rm-110a-1",
+      "concept_id": "scope1_ghg_emissions",
+      "reference_id": "sasb-em-rm-110a-1-2023-12",
+      "reference_code": "EM-RM-110a.1",
+      "reference_title": "Gross global Scope 1 emissions, percentage covered under emissions-limiting regulations",
+      "standard_name": "SASB Standard—Oil & Gas – Refining & Marketing",
+      "standard_version": "Version 2023-12",
+      "source_type": "sasb_standard",
+      "source_document": "Oil & Gas – Refining & Marketing Standard (Version 2023-12)",
+      "source_url": "https://sasb.ifrs.org/archive/standard-setting/",
+      "supporting_source_urls": [
+        "https://sasb.ifrs.org/standards/materiality-finder/find/?industry%5B0%5D=EM-RM"
+      ],
+      "source_locator": "Greenhouse Gas Emissions, metric EM-RM-110a.1",
+      "relevant_requirement_excerpt": "Gross global Scope 1 emissions, percentage covered under emissions-limiting regulations",
+      "relationship_type": "partially_addresses",
+      "mapping_reason": "The concept contains a Scope 1 amount that could address one component of EM-RM-110a.1. The candidate is not verified because the entity's industry applicability and the metric's remaining conditions are not established by the current claims.",
+      "covered_aspects": [
+        "A quantitative amount labelled as Scope 1 greenhouse gas emissions",
+        "A value expressed in tCO2e"
+      ],
+      "unverified_aspects": [
+        "Whether the amount is gross and global for the relevant reporting boundary",
+        "Percentage covered under emissions-limiting regulations",
+        "Measurement protocol and completeness of EM-RM-110a.1",
+        "Applicability of the Oil & Gas – Refining & Marketing SASB Standard to the reporting entity"
+      ],
+      "industry_applicability_status": "unverified",
+      "applicability_status": "unverified",
+      "verification_blockers": [
+        "No reviewed SICS classification or equivalent industry-applicability record for BSR is present in the graph input",
+        "The current claims do not establish that the amount is gross and global or provide the percentage covered by emissions-limiting regulations",
+        "The selected claim evidence has no original source text and has not been manually adjudicated against the PDF"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "mapping_id": "map-chair-ceo-gri-2-11",
+      "concept_id": "chair_ceo_role_separation",
+      "reference_id": "gri-2-11-2021",
+      "reference_code": "Disclosure 2-11",
+      "reference_title": "Chair of the highest governance body",
+      "standard_name": "GRI 2: General Disclosures",
+      "standard_version": "2021",
+      "source_type": "standard",
+      "source_document": "GRI 2: General Disclosures 2021",
+      "source_url": "https://www.globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/",
+      "relationship_type": "related",
+      "mapping_reason": "The concept addresses separation of chair and CEO roles. Disclosure 2-11 asks whether the chair is also any senior executive and requires further explanation when so; CEO separation alone does not answer every case or establish complete disclosure.",
+      "verification_status": "verified"
+    },
+    {
+      "mapping_id": "map-chair-ceo-ifrs-s1-governance",
+      "concept_id": "chair_ceo_role_separation",
+      "reference_id": "ifrs-s1-26-27-2023",
+      "reference_code": "IFRS S1 26–27",
+      "reference_title": "Governance",
+      "standard_name": "IFRS S1 General Requirements for Disclosure of Sustainability-related Financial Information",
+      "standard_version": "June 2023",
+      "source_type": "standard",
+      "source_document": "IFRS S1 General Requirements, Part A",
+      "source_url": "https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards-issb/english/2023/issued/part-a/issb-2023-a-ifrs-s1-general-requirements-for-disclosure-of-sustainability-related-financial-information.pdf?bypass=on",
+      "source_locator": "IFRS S1 paragraphs 26–27",
+      "relevant_requirement_excerpt": "governance processes, controls and procedures the entity uses to monitor, manage and oversee sustainability-related risks and opportunities",
+      "relationship_type": "related",
+      "mapping_reason": "Paragraphs 26–27 concern governance processes and oversight of sustainability-related risks and opportunities. The existing claim only states that the chair and CEO roles are separate, so it does not establish the sustainability-governance content required by these paragraphs.",
+      "applicability_status": "unverified",
+      "verification_blockers": [
+        "The claim does not identify the governance body or individual responsible for sustainability-related risks and opportunities",
+        "The claim does not describe sustainability oversight processes, controls, mandates, information flows or management responsibilities",
+        "The selected claim evidence has no original source text and has not been manually adjudicated against the PDF",
+        "Application of IFRS S1 by the reporting entity is not established in the current claim data"
+      ],
+      "verification_status": "unverified"
+    }
+  ]
+}

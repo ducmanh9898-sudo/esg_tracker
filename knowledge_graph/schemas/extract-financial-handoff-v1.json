@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Extract financial report handoff v1 (Separate or Consolidated)",
+  "type": "object",
+  "required": ["schema_version", "document", "coverage", "structured_key_metrics", "monetary_groups", "numeric_occurrences", "pages", "issue_log"],
+  "properties": {
+    "schema_version": {"enum": ["extract-financial-1.0", "extract-financial-separate-1.0"]},
+    "document": {
+      "type": "object",
+      "required": ["document_key", "company_id", "report_year", "financial_statement_scope", "source_file"],
+      "properties": {
+        "document_key": {"type": "string", "minLength": 1},
+        "company_id": {"type": "string", "minLength": 1},
+        "report_year": {"type": "integer"},
+        "financial_statement_scope": {"enum": ["Separate", "Consolidated"]},
+        "source_file": {"type": "string", "minLength": 1},
+        "source_locator": {"type": ["string", "null"]},
+        "reporting_date": {"type": ["string", "null"]},
+        "publication_date": {"type": ["string", "null"]},
+        "extraction_timestamp": {"type": ["string", "null"]},
+        "claim_count": {"type": ["integer", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "coverage": {"type": "object", "required": ["status"], "properties": {"status": {"type": "string"}}, "additionalProperties": true},
+    "structured_key_metrics": {"type": "array", "items": {"$ref": "#/$defs/metric"}},
+    "monetary_groups": {"type": "array"},
+    "numeric_occurrences": {"type": "array"},
+    "pages": {"type": "array", "items": {"type": "object", "required": ["page_number", "text"], "properties": {"page_number": {"type": "integer"}, "text": {"type": ["string", "null"]}}, "additionalProperties": true}},
+    "issue_log": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "required": ["record_id", "metric_code", "measurements", "review_status", "source_page"],
+      "properties": {
+        "record_id": {"type": "string", "minLength": 1},
+        "metric_code": {"type": "string", "minLength": 1},
+        "metric_name": {"type": ["string", "null"]},
+        "dimension": {"const": "X"},
+        "unit": {"type": ["string", "null"]},
+        "unit_multiplier": {"type": ["number", "null"]},
+        "source_page": {"type": ["integer", "null"]},
+        "claim_text": {"type": ["string", "null"]},
+        "review_status": {"type": "string"},
+        "confidence": {"type": ["number", "null"]},
+        "extraction_notes": {"type": ["string", "null"]},
+        "measurements": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["measurement_id", "value"], "properties": {"measurement_id": {"type": "string", "minLength": 1}, "period": {"type": ["integer", "null"]}, "period_type": {"type": ["string", "null"]}, "value": {"type": ["number", "null"]}, "value_status": {"enum": ["available", "missing", "ambiguous", "unknown", "not_applicable"]}, "unit": {"type": ["string", "null"]}, "unit_multiplier": {"type": ["number", "null"]}}, "additionalProperties": true}}
+      },
+      "additionalProperties": true
+    }
+  },
+  "allOf": [{"if": {"properties": {"schema_version": {"const": "extract-financial-separate-1.0"}}}, "then": {"properties": {"document": {"properties": {"financial_statement_scope": {"const": "Separate"}}}}}}],
+  "additionalProperties": true
+}

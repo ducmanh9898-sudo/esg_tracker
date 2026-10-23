@@ -1,0 +1,1 @@
+{"profile_id":"manufacturing_fixture","version":"test-only","applicable_topics":{"E":["energy"],"S":[],"G":[]},"relevant_metrics":["energy_use"],"aliases":{},"standards_applicability":{},"expected_evidence":{"measurement":["source_file"]},"industry_constraints":[],"benchmark_context":{"status":"not_established"}}

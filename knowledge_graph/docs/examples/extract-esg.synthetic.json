@@ -1,0 +1,105 @@
+{
+  "schema_version": "extract-esg-1.0",
+  "synthetic_example": true,
+  "document": {
+    "company_id": "EXAMPLE",
+    "report_year": 2025,
+    "report_type": "ESG",
+    "reporting_entity": "unknown",
+    "source_file": "EXAMPLE_2025_ESG.synthetic.pdf",
+    "source_locator": "synthetic://EXAMPLE_2025_ESG.pdf",
+    "reporting_period_start": "2025-01-01",
+    "reporting_period_end": "2025-12-31",
+    "publication_date": null,
+    "extraction_timestamp": "2026-01-15T10:00:00Z"
+  },
+  "environment": {
+    "energy": {
+      "records": [
+        {
+          "record_id": "EX-ESG-ENERGY-2025",
+          "evidence_id": "EX-EVD-ENERGY-2025",
+          "claim_type": "measurement",
+          "metric_id": "energy_use",
+          "metric_definition": "Annual energy use",
+          "year": 2025,
+          "period_type": "annual",
+          "reporting_boundary": null,
+          "value": 12.5,
+          "unit": "MWh",
+          "scope": "operations",
+          "source_pages": [12],
+          "original_text": "Synthetic example: annual energy use was 12.5 MWh.",
+          "review_status": "unreviewed",
+          "extraction_status": "extracted"
+        },
+        {
+          "record_id": "EX-ESG-ENERGY-TARGET-2026",
+          "evidence_id": "EX-EVD-ENERGY-TARGET",
+          "claim_type": "target",
+          "metric_id": "energy_use",
+          "metric_definition": "Annual energy use target",
+          "year": 2026,
+          "period_type": "annual",
+          "reporting_boundary": null,
+          "value": 10,
+          "unit": "MWh",
+          "scope": "operations",
+          "source_pages": [13],
+          "original_text": "Synthetic example: target for 2026 is 10 MWh.",
+          "review_status": "unreviewed",
+          "extraction_status": "extracted"
+        },
+        {
+          "record_id": "EX-ESG-MISSING-2025",
+          "evidence_id": "EX-EVD-MISSING-2025",
+          "claim_type": "measurement",
+          "metric_id": "renewable_energy_share",
+          "metric_definition": "Share of renewable energy",
+          "year": 2025,
+          "period_type": "annual",
+          "reporting_boundary": null,
+          "value": null,
+          "value_status": "missing",
+          "unit": "%",
+          "scope": "operations",
+          "source_pages": [14],
+          "original_text": "Synthetic example: renewable energy is discussed without a numeric share.",
+          "review_status": "unreviewed",
+          "extraction_status": "partial",
+          "uncertainty": ["numeric_share_not_disclosed"]
+        },
+        {
+          "record_id": "EX-ESG-UNKNOWN-PERIOD",
+          "evidence_id": "EX-EVD-UNKNOWN-PERIOD",
+          "claim_type": "measurement",
+          "metric_id": "energy_intensity",
+          "value": 3,
+          "unit": "MWh/unit",
+          "source_pages": [],
+          "original_text": null,
+          "review_status": "unreviewed",
+          "extraction_status": "partial",
+          "uncertainty": ["period_and_locator_need_review"]
+        }
+      ]
+    }
+  },
+  "governance": {
+    "policy": {
+      "records": [
+        {
+          "record_id": "EX-ESG-POLICY-2025",
+          "evidence_id": "EX-EVD-POLICY-2025",
+          "claim_type": "policy",
+          "source_pages": [8],
+          "original_text": "Synthetic example: the board adopted an ESG oversight policy.",
+          "review_status": "unreviewed",
+          "extraction_status": "extracted"
+        }
+      ]
+    }
+  },
+  "coverage": {"status": "partial", "review_status": "unreviewed", "pages_checked": [8, 12, 13, 14]},
+  "issue_log": [{"issue_id": "EX-ISSUE-1", "record_id": "EX-ESG-MISSING-2025", "type": "missing_numeric_value", "status": "open"}]
+}

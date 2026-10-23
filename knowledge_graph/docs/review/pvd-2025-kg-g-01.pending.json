@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0",
+  "purpose": "PVD 2025 KG-G-01 real-source review proposal; all annotations remain pending",
+  "source_reviews": [
+    {
+      "annotation_id": "SRC-CLM-B51DCEBE89BEB022",
+      "company_id": "PVD",
+      "report_id": "PVD:2025:ESG:unknown:PVD_2025_esg.json",
+      "record_id": "CLM-B51DCEBE89BEB022",
+      "extract_path": "data/extract/esg/PVD_2025_esg.json",
+      "extract_sha256": "715c714b73b6568ed318fabcc9348013d8e292a029425d0b661dd077f45227e2",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-BBE47CA5D443F2E9",
+          "source_file": "PVD_2025.pdf",
+          "source_pages": [
+            55,
+            56,
+            57,
+            129,
+            130
+          ],
+          "json_pointer": "/governance/board/independent_members/2025",
+          "original_text": "Quản trị    G1. Quản trị công ty                  G1.2    Số lượng thành viên HĐQT độc lập                         C         số lượng   3                        3                        2"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official PV Drilling Sustainability Report 2025 PDF, physical page 129 / printed spread 256-257, Appendix 3, row G1.2 (Số lượng thành viên HĐQT độc lập), 2025 column 2; source PDF SHA-256 438E42C612914718C16E1A32E71FC9E34F23526FBE5982875E7AB36E5D33FDF6. Candidate only; source file in Extract is PVD_2025.pdf. Compare the figure and quote against the rendered page before marking reviewed.",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    },
+    {
+      "annotation_id": "SRC-CLM-D88942EE1564C33B",
+      "company_id": "PVD",
+      "report_id": "PVD:2025:ESG:unknown:PVD_2025_esg.json",
+      "record_id": "CLM-D88942EE1564C33B",
+      "extract_path": "data/extract/esg/PVD_2025_esg.json",
+      "extract_sha256": "715c714b73b6568ed318fabcc9348013d8e292a029425d0b661dd077f45227e2",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-5E3ACA3BCB7257CC",
+          "source_file": "PVD_2025.pdf",
+          "source_pages": [
+            55,
+            56,
+            57,
+            129,
+            130
+          ],
+          "json_pointer": "/governance/board/members/2025",
+          "original_text": "Quản trị    G1. Quản trị công ty                   G1.1   Số lượng thành viên HĐQT                                 C         số lượng   7                        7                        7"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official PV Drilling Sustainability Report 2025 PDF, physical page 129 / printed spread 256-257, Appendix 3, row G1.1 (Số lượng thành viên HĐQT), 2025 column 7; source PDF SHA-256 438E42C612914718C16E1A32E71FC9E34F23526FBE5982875E7AB36E5D33FDF6. Candidate only; source file in Extract is PVD_2025.pdf. Compare the figure and quote against the rendered page before marking reviewed.",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    }
+  ],
+  "mapping_reviews": [
+    {
+      "annotation_id": "MAP-KG-G-01-CLM-B51DCEBE89BEB022-board_independent_count",
+      "company_id": "PVD",
+      "report_id": "PVD:2025:ESG:unknown:PVD_2025_esg.json",
+      "record_id": "CLM-B51DCEBE89BEB022",
+      "extract_path": "data/extract/esg/PVD_2025_esg.json",
+      "extract_sha256": "715c714b73b6568ed318fabcc9348013d8e292a029425d0b661dd077f45227e2",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-BBE47CA5D443F2E9",
+          "source_file": "PVD_2025.pdf",
+          "source_pages": [
+            55,
+            56,
+            57,
+            129,
+            130
+          ],
+          "json_pointer": "/governance/board/independent_members/2025",
+          "original_text": "Quản trị    G1. Quản trị công ty                  G1.2    Số lượng thành viên HĐQT độc lập                         C         số lượng   3                        3                        2"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official PV Drilling Sustainability Report 2025 PDF, physical page 129 / printed spread 256-257, Appendix 3, row G1.2 (Số lượng thành viên HĐQT độc lập), 2025 column 2; source PDF SHA-256 438E42C612914718C16E1A32E71FC9E34F23526FBE5982875E7AB36E5D33FDF6. Candidate only; source file in Extract is PVD_2025.pdf. Proposed canonical role board_independent_count; row wording is the basis, not a verified mapping. Independent-director qualification criteria remain to be checked.",
+      "alias_id": "KG-G-01|board_independent_members|board_independent_count",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    },
+    {
+      "annotation_id": "MAP-KG-G-01-CLM-D88942EE1564C33B-board_total_count",
+      "company_id": "PVD",
+      "report_id": "PVD:2025:ESG:unknown:PVD_2025_esg.json",
+      "record_id": "CLM-D88942EE1564C33B",
+      "extract_path": "data/extract/esg/PVD_2025_esg.json",
+      "extract_sha256": "715c714b73b6568ed318fabcc9348013d8e292a029425d0b661dd077f45227e2",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-5E3ACA3BCB7257CC",
+          "source_file": "PVD_2025.pdf",
+          "source_pages": [
+            55,
+            56,
+            57,
+            129,
+            130
+          ],
+          "json_pointer": "/governance/board/members/2025",
+          "original_text": "Quản trị    G1. Quản trị công ty                   G1.1   Số lượng thành viên HĐQT                                 C         số lượng   7                        7                        7"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official PV Drilling Sustainability Report 2025 PDF, physical page 129 / printed spread 256-257, Appendix 3, row G1.1 (Số lượng thành viên HĐQT), 2025 column 7; source PDF SHA-256 438E42C612914718C16E1A32E71FC9E34F23526FBE5982875E7AB36E5D33FDF6. Candidate only; source file in Extract is PVD_2025.pdf. Proposed canonical role board_total_count; row wording is the basis, not a verified mapping. Independent-director qualification criteria remain to be checked.",
+      "alias_id": "KG-G-01|board_members|board_total_count",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    }
+  ],
+  "context_reviews": [
+    {
+      "annotation_id": "CTX-KG-G-01-CLM-B51DCEBE89BEB022",
+      "company_id": "PVD",
+      "report_id": "PVD:2025:ESG:unknown:PVD_2025_esg.json",
+      "record_id": "CLM-B51DCEBE89BEB022",
+      "extract_path": "data/extract/esg/PVD_2025_esg.json",
+      "extract_sha256": "715c714b73b6568ed318fabcc9348013d8e292a029425d0b661dd077f45227e2",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-BBE47CA5D443F2E9",
+          "source_file": "PVD_2025.pdf",
+          "source_pages": [
+            55,
+            56,
+            57,
+            129,
+            130
+          ],
+          "json_pointer": "/governance/board/independent_members/2025",
+          "original_text": "Quản trị    G1. Quản trị công ty                  G1.2    Số lượng thành viên HĐQT độc lập                         C         số lượng   3                        3                        2"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official PV Drilling Sustainability Report 2025 PDF, physical page 129 / printed spread 256-257, Appendix 3, row G1.2 (Số lượng thành viên HĐQT độc lập), 2025 column 2; source PDF SHA-256 438E42C612914718C16E1A32E71FC9E34F23526FBE5982875E7AB36E5D33FDF6. Candidate only; source file in Extract is PVD_2025.pdf. Both rows are in the same G1 board table and 2025 column. Exact snapshot date, reporting entity boundary and independent-member definition are not established by this table; keep pending.",
+      "rule_id": "KG-G-01",
+      "fields": {
+        "observation_year": 2025,
+        "period_type": "annual",
+        "reporting_boundary": "unknown",
+        "unit": "person",
+        "variant": "reported",
+        "metric_definition": null,
+        "scope": "PV Drilling Board of Directors",
+        "board_id": "PV Drilling Board of Directors",
+        "counting_method": "headcount",
+        "measurement_date": null
+      },
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at",
+        "fields.reporting_boundary",
+        "fields.metric_definition",
+        "fields.measurement_date"
+      ]
+    },
+    {
+      "annotation_id": "CTX-KG-G-01-CLM-D88942EE1564C33B",
+      "company_id": "PVD",
+      "report_id": "PVD:2025:ESG:unknown:PVD_2025_esg.json",
+      "record_id": "CLM-D88942EE1564C33B",
+      "extract_path": "data/extract/esg/PVD_2025_esg.json",
+      "extract_sha256": "715c714b73b6568ed318fabcc9348013d8e292a029425d0b661dd077f45227e2",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-5E3ACA3BCB7257CC",
+          "source_file": "PVD_2025.pdf",
+          "source_pages": [
+            55,
+            56,
+            57,
+            129,
+            130
+          ],
+          "json_pointer": "/governance/board/members/2025",
+          "original_text": "Quản trị    G1. Quản trị công ty                   G1.1   Số lượng thành viên HĐQT                                 C         số lượng   7                        7                        7"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official PV Drilling Sustainability Report 2025 PDF, physical page 129 / printed spread 256-257, Appendix 3, row G1.1 (Số lượng thành viên HĐQT), 2025 column 7; source PDF SHA-256 438E42C612914718C16E1A32E71FC9E34F23526FBE5982875E7AB36E5D33FDF6. Candidate only; source file in Extract is PVD_2025.pdf. Both rows are in the same G1 board table and 2025 column. Exact snapshot date, reporting entity boundary and independent-member definition are not established by this table; keep pending.",
+      "rule_id": "KG-G-01",
+      "fields": {
+        "observation_year": 2025,
+        "period_type": "annual",
+        "reporting_boundary": "unknown",
+        "unit": "person",
+        "variant": "reported",
+        "metric_definition": null,
+        "scope": "PV Drilling Board of Directors",
+        "board_id": "PV Drilling Board of Directors",
+        "counting_method": "headcount",
+        "measurement_date": null
+      },
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at",
+        "fields.reporting_boundary",
+        "fields.metric_definition",
+        "fields.measurement_date"
+      ]
+    }
+  ]
+}

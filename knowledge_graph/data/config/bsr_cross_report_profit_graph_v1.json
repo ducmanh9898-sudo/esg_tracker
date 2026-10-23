@@ -1,0 +1,16 @@
+{
+  "company_id": "BSR",
+  "auto_metric_candidates": false,
+  "arithmetic_rules": [],
+  "expected_reports": [
+    {"report_year": 2023, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2024, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2025, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2023, "report_type": "Financial", "financial_scope": "Separate"},
+    {"report_year": 2024, "report_type": "Financial", "financial_scope": "Separate"},
+    {"report_year": 2025, "report_type": "Financial", "financial_scope": "Separate"},
+    {"report_year": 2023, "report_type": "Financial", "financial_scope": "Consolidated"},
+    {"report_year": 2024, "report_type": "Financial", "financial_scope": "Consolidated"},
+    {"report_year": 2025, "report_type": "Financial", "financial_scope": "Consolidated"}
+  ]
+}

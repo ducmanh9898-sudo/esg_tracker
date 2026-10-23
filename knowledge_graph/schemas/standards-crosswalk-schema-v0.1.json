@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/esg/standards-crosswalk-schema-v0.1.json",
+  "title": "Sample standards crosswalk",
+  "type": "object",
+  "required": ["schema_version", "concepts", "mappings"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "scope_note": {"type": "string"},
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["concept_id", "name", "claim_match"],
+        "properties": {
+          "concept_id": {"type": "string"},
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "claim_match": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "type": "array",
+              "minItems": 1
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "mapping_id", "concept_id", "reference_id", "reference_code",
+          "reference_title", "standard_name", "standard_version",
+          "source_type", "source_document", "source_url", "relationship_type",
+          "mapping_reason", "verification_status"
+        ],
+        "properties": {
+          "mapping_id": {"type": "string"},
+          "concept_id": {"type": "string"},
+          "reference_id": {"type": "string"},
+          "reference_code": {"type": "string"},
+          "reference_title": {"type": "string"},
+          "standard_name": {"type": "string"},
+          "standard_version": {"type": "string"},
+          "source_type": {"enum": ["standard", "sasb_standard", "industry_based_guidance"]},
+          "source_document": {"type": "string"},
+          "source_url": {"type": "string", "format": "uri"},
+          "relationship_type": {
+            "enum": ["equivalent", "related", "broader", "narrower", "complementary", "partially_addresses"]
+          },
+          "mapping_reason": {"type": "string"},
+          "source_locator": {"type": "string"},
+          "relevant_requirement_excerpt": {"type": "string"},
+          "supporting_source_urls": {
+            "type": "array",
+            "items": {"type": "string", "format": "uri"},
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "covered_aspects": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "unverified_aspects": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "industry_applicability_status": {"enum": ["verified", "unverified", "not_applicable"]},
+          "applicability_status": {"enum": ["verified", "unverified", "not_applicable"]},
+          "verification_blockers": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "verification_status": {"enum": ["verified", "unverified"]}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ESG text candidates with incomplete field interpretation",
+  "type": "object",
+  "required": ["schema_version", "parser_version", "records", "evidence", "links", "coverage", "issues", "counts", "source_artifacts", "source_blocks", "graph_ready", "semantic_status", "pending"],
+  "properties": {
+    "schema_version": {"const": "esg-candidates/2.1.0"},
+    "parser_version": {"enum": [2, 3, 4, 5]},
+    "graph_ready": {"const": false},
+    "semantic_status": {"const": "partial"},
+    "evidence": {"type": "array", "items": {"type": "object", "required": ["evidence_id", "record_id", "metric_id", "original_text", "source", "status", "boundary_verified"], "properties": {"status": {"const": "candidate"}, "boundary_verified": {"const": false}}}},
+    "links": {"type": "array", "items": {"type": "object", "required": ["link_id", "claim_id", "evidence_id", "relation", "status", "comparability"], "properties": {"relation": {"const": "candidate_context"}, "status": {"const": "needs_review"}, "comparability": {"type": "object", "required": ["period", "unit", "definition", "boundary", "eligible"], "properties": {"eligible": {"const": false}}}}}},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["record_id", "record_type", "report_version_id", "original_text", "source_refs", "field_sources", "payload", "content_period", "boundary", "field_status", "missing_fields", "review", "classification"],
+        "properties": {
+          "record_type": {"enum": ["claim", "policy", "action", "target", "governance", "unknown", "metric", "measurement"]},
+          "original_text": {"type": "string"},
+          "source_refs": {"type": "array", "minItems": 1, "uniqueItems": true},
+          "domain": {"const": "esg"},
+          "content_period": {"type": ["null", "object"]},
+          "classification": {"type": "object", "required": ["pillar", "topic_candidates", "codebook_version", "status"], "properties": {"pillar": {"enum": ["E", "S", "G", "unknown"]}, "status": {"const": "candidate"}}},
+          "review": {"type": "object", "required": ["status", "verified_fields"], "properties": {"status": {"const": "needs_review"}, "verified_fields": {"maxItems": 0}}},
+          "payload": {"type": "object", "required": ["statement", "section_heading_raw", "classification_method"]}
+        },
+        "allOf": [
+          {"if": {"properties": {"record_type": {"const": "metric"}}}, "then": {"properties": {"payload": {"required": ["name_raw", "metric_code_candidates"]}}}},
+          {"if": {"properties": {"record_type": {"const": "measurement"}}}, "then": {"properties": {"payload": {"required": ["metric_id", "metric_code_candidates", "value", "value_raw", "header_raw", "unit"], "properties": {"value": {"type": ["string", "null"]}, "unit": {"type": ["string", "null"]}}}}}},
+          {"if": {"properties": {"record_type": {"const": "target"}}}, "then": {"properties": {"payload": {"required": ["target_value", "unit", "target_year", "deadline", "baseline_year", "baseline_value"], "properties": {"target_year": {"type": ["integer", "null"]}, "baseline_year": {"type": ["integer", "null"]}}}}}},
+          {"if": {"properties": {"record_type": {"const": "policy"}}}, "then": {"properties": {"payload": {"required": ["policy_text", "applicable_scope", "effective_date"]}}}},
+          {"if": {"properties": {"record_type": {"const": "action"}}}, "then": {"properties": {"payload": {"required": ["activity", "beneficiaries", "time", "disclosed_results"]}}}},
+          {"if": {"properties": {"record_type": {"const": "governance"}}}, "then": {"properties": {"payload": {"required": ["responsible_body", "responsible_person", "role", "oversight_mechanism", "reporting_frequency"]}}}}
+        ]
+      }
+    },
+    "coverage": {"type": "object", "required": ["source_pages", "blocks"]},
+    "issues": {"type": "array"},
+    "pending": {"type": "array", "minItems": 1}
+  }
+}

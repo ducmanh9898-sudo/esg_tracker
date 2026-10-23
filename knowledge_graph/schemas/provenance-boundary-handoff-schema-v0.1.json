@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Extract provenance and reporting boundary handoff",
+  "type": "object",
+  "required": ["schema_version", "records"],
+  "properties": {
+    "schema_version": {"type": "string", "minLength": 1},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "evidence_id", "company_id", "report_year", "source_file", "source_pages", "json_pointer", "original_text", "extraction_status", "boundary", "missing_fields"],
+        "properties": {
+          "claim_id": {"type": "string", "pattern": "^CLM-[A-F0-9]{12}$"},
+          "evidence_id": {"type": "string", "pattern": "^EVD-[A-F0-9]{12}$"},
+          "company_id": {"type": "string", "minLength": 1},
+          "report_id": {"type": ["string", "null"]},
+          "report_year": {"type": "integer", "minimum": 2000, "maximum": 2100},
+          "metric_period_year": {"type": ["integer", "null"], "minimum": 2000, "maximum": 2100},
+          "period_type": {"type": ["string", "null"]},
+          "source_file": {"type": "string", "minLength": 1},
+          "source_pages": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "integer", "minimum": 1}},
+          "json_pointer": {"type": "string", "pattern": "^/"},
+          "original_text": {"type": ["string", "null"]},
+          "original_text_type": {"enum": ["verbatim", "table_interpretation", "chart_interpretation", "paraphrase", "unknown"]},
+          "original_text_verbatim": {"type": "boolean"},
+          "extraction_status": {"type": "string", "minLength": 1},
+          "reporting_boundary_verified": {"type": "boolean"},
+          "missing_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "boundary": {
+            "type": "object",
+            "required": ["status", "basis", "included_entities", "excluded_entities", "measurement_scope", "consolidation_approach", "source_pages", "missing_fields"],
+            "properties": {
+              "status": {"enum": ["unverified", "partially_verified", "verified", "resolved"]},
+              "basis": {"type": ["string", "null"]},
+              "included_entities": {"type": ["array", "string", "null"]},
+              "excluded_entities": {"type": ["array", "string", "null"]},
+              "measurement_scope": {"type": ["string", "null"]},
+              "consolidation_approach": {"type": ["string", "null"]},
+              "source_pages": {"type": ["array", "null"], "items": {"type": "integer", "minimum": 1}},
+              "missing_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

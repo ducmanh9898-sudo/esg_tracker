@@ -1,0 +1,41 @@
+{
+  "schema_version": "extract-financial-1.0",
+  "synthetic_example": true,
+  "document": {
+    "document_key": "EXAMPLE_2025_FS_CONSOLIDATED",
+    "company_id": "EXAMPLE",
+    "report_year": 2025,
+    "financial_statement_scope": "Consolidated",
+    "source_file": "EXAMPLE_2025_FS_Consolidated.synthetic.pdf",
+    "source_locator": "synthetic://EXAMPLE_2025_FS_Consolidated.pdf",
+    "reporting_date": "2025-12-31",
+    "publication_date": null,
+    "extraction_timestamp": "2026-01-15T12:00:00Z",
+    "claim_count": 1
+  },
+  "coverage": {"status": "partial", "review_status": "unreviewed", "pages_checked": [3]},
+  "structured_key_metrics": [
+    {
+      "record_id": "EX-FIN-CONSOLIDATED-REVENUE",
+      "metric_code": "revenue",
+      "metric_name": "Consolidated revenue",
+      "dimension": "X",
+      "unit": "VND",
+      "unit_multiplier": 1000000,
+      "measurements": [
+        {"measurement_id": "GROUP-REVENUE-2025", "period": 2025, "period_type": "annual", "value": 200, "unit": "VND", "unit_multiplier": 1000000},
+        {"measurement_id": "GROUP-REVENUE-2024", "period": 2024, "period_type": "annual", "value": 180, "unit": "VND", "unit_multiplier": 1000000}
+      ],
+      "source_page": 3,
+      "claim_text": "Synthetic OCR example: consolidated revenue 2025 200; 2024 180; million VND.",
+      "review_status": "unreviewed",
+      "confidence": 0.7,
+      "extraction_notes": "Synthetic values; group boundary and columns have not been manually reviewed.",
+      "extraction_status": "candidate"
+    }
+  ],
+  "monetary_groups": [],
+  "numeric_occurrences": [],
+  "pages": [{"page_number": 3, "text": "Synthetic OCR example: consolidated revenue 2025 200; 2024 180; million VND."}],
+  "issue_log": [{"issue_id": "EX-FIN-CONS-ISSUE-1", "record_id": "EX-FIN-CONSOLIDATED-REVENUE", "type": "boundary_and_column_review_pending", "status": "open"}]
+}

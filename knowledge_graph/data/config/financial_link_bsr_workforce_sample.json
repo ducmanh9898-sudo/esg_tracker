@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "synthetic": false,
+  "scope_note": "Candidate linkage only. ESG workforce boundary and measurement date remain unverified; matching the separate BCTC value does not verify them. FC01 stays inactive.",
+  "checks": [
+    {
+      "check_id": "BSR-WORKFORCE-2025-CANDIDATE",
+      "status": "NeedsReview",
+      "esg_claim_id": "CLM-08082F5B81CD",
+      "financial_disclosure_id": "FIN-BSR-BCTC-2025-workforce.total",
+      "esg_measurement_context": {
+        "reporting_boundary": {
+          "entity_set": "unknown",
+          "verification_status": "unverified",
+          "source_document": "BSR_2025.pdf",
+          "source_pages": [39, 66],
+          "note": "The ESG materiality-assessment scope passage does not establish the legal-entity boundary of the 1,594 employee metric."
+        },
+        "measurement_date": {"value": null, "verification_status": "unverified"},
+        "employee_definition": {"definition_id": null, "verification_status": "unverified"}
+      },
+      "related_financial_observations": [
+        {
+          "observation_id": "OBS-BSR-BCTC-SEPARATE-2025-workforce.total",
+          "value": 1594,
+          "unit": "person",
+          "source_document": "BCTC riêng BSR 2025",
+          "source_pages": null,
+          "source_status": "user_reported_pdf_review_locator_pending",
+          "measurement_date": "2025-12-31",
+          "reporting_boundary": {"scope_id": "separate_parent", "entity_set": "parent", "verification_status": "user_reported_pending_locator"},
+          "note": "Context observation from the user's PDF review, not an Extract JSON disclosure or evidence that the ESG metric has the same boundary."
+        }
+      ],
+      "join_conditions": [
+        {"esg_field": "company_id", "financial_field": "company_id", "operator": "equal"},
+        {"esg_field": "report_year", "financial_field": "reporting_period.fiscal_year", "operator": "equal"},
+        {"esg_field": "unit", "financial_field": "unit", "operator": "equal"},
+        {"esg_field": "workforce_context.reporting_boundary.entity_set", "financial_field": "scope.entity_set", "operator": "equal_verified"},
+        {"esg_field": "workforce_context.measurement_date.value", "financial_field": "measurement_date.value", "operator": "equal_verified"},
+        {"esg_field": "workforce_context.employee_definition.definition_id", "financial_field": "employee_definition.definition_id", "operator": "equal_verified"}
+      ],
+      "comparison": {
+        "esg_value": 1594,
+        "financial_value": 1946,
+        "operator": "arithmetic_gap_unassessed",
+        "performed": false
+      },
+      "reason": "The 1,946 figure belongs to consolidated parent plus subsidiaries at 31 December 2025. The ESG 1,594 metric has no verified legal-entity boundary, measurement date or employee definition; equality with the separate BCTC figure cannot supply these facts.",
+      "result_policy": {
+        "scope_or_definition_mismatch": "NeedsReview",
+        "missing_financial_disclosure": "not_run_no_finding",
+        "never_creates_contradicted": true,
+        "fc01_status": "inactive"
+      }
+    }
+  ]
+}

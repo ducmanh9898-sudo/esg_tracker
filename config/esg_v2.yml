@@ -1,0 +1,20 @@
+version: esg-keyword-candidates/2
+taxonomy_status: provisional_candidates_not_graph_agreed
+# Patterns are matched against accent-folded text; source text is never edited.
+types:
+  policy: 'chinh sach|quy tac ung xu|quy dinh|\bpolic(?:y|ies)\b|code of conduct'
+  action: 'trien khai|thuc hien|chuong trinh|to chuc dao tao|lap dat|\bimplemented\b|\bprogrammes?\b|\bprograms?\b|\binitiatives?\b'
+  target: 'muc tieu|cam ket|\btargets?\b|\bcommitments?\b|net zero'
+  governance: 'hoi dong quan tri|\bhdqt\b|hoi dong thanh vien|\bhdtv\b|uy ban|board of directors|audit committee|oversight'
+claim_pattern: 'ben vung|than thien moi truong|\bxanh\b|sustainab|net zero'
+topics:
+  E_CLIMATE: {pillar: E, pattern: 'phat thai|khi nha kinh|scope [123]|emissions?|greenhouse|net zero'}
+  E_ENERGY: {pillar: E, pattern: 'nang luong|dien tieu thu|energy|renewable'}
+  E_WATER: {pillar: E, pattern: '\bnuoc\b|\bwater\b'}
+  E_WASTE: {pillar: E, pattern: 'chat thai|\bwaste\b|tai che|recycl'}
+  E_SPILLS: {pillar: E, pattern: 'tran dau|oil spill'}
+  S_SAFETY: {pillar: S, pattern: 'an toan lao dong|tai nan lao dong|occupational safety|injur'}
+  S_TRAINING: {pillar: S, pattern: 'dao tao|training'}
+  S_WORKFORCE: {pillar: S, pattern: 'lao dong|nhan vien|nhan su|workforce|employees?|headcount'}
+  G_COMPLIANCE: {pillar: G, pattern: 'tham nhung|tuan thu|corruption|compliance'}
+  G_OVERSIGHT: {pillar: G, pattern: 'hoi dong quan tri|\bhdqt\b|board of directors|audit committee|giam sat|oversight'}

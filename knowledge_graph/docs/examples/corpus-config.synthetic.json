@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "industry_profile": "tests/fixtures/other_industry_profile.json",
+  "extract_manifest": "docs/examples/manifest.synthetic.json",
+  "selection_files": {},
+  "rule_sets": {},
+  "reports": [
+    {
+      "company_id": "EXAMPLE",
+      "report_year": 2025,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "path": "docs/examples/extract-esg.synthetic.json",
+      "adapter": "structured_esg",
+      "coverage": "partial",
+      "reason": "Synthetic handoff contract test"
+    },
+    {
+      "company_id": "EXAMPLE",
+      "report_year": 2025,
+      "report_type": "Financial",
+      "reporting_entity": "Separate",
+      "path": "docs/examples/extract-financial-separate.synthetic.json",
+      "adapter": "financial_handoff",
+      "coverage": "partial",
+      "reason": "Synthetic handoff contract test"
+    },
+    {
+      "company_id": "EXAMPLE",
+      "report_year": 2025,
+      "report_type": "Financial",
+      "reporting_entity": "Consolidated",
+      "path": "docs/examples/extract-financial-consolidated.synthetic.json",
+      "adapter": "financial_handoff",
+      "coverage": "partial",
+      "reason": "Synthetic handoff contract test"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "company_id": "BSR",
+  "auto_metric_candidates": false,
+  "require_source_basis_review": true,
+  "arithmetic_rules": [],
+  "metric_families": [
+    {
+      "id": "profit_after_tax",
+      "patterns": ["^(?:(?:ma so )?60 )?loi nhuan sau thue(?: |$)"],
+      "exclude_patterns": ["\\bco dong\\b", "\\bchua phan phoi\\b", "\\btrich quy\\b", "\\bquy khen thuong\\b"]
+    },
+    {"id": "profit_before_tax", "patterns": ["loi nhuan.*truoc thue"]},
+    {"id": "revenue", "patterns": ["doanh thu"]},
+    {"id": "tax_budget", "patterns": ["nop.*ngan sach", "thue.*da nop"]},
+    {"id": "assets", "patterns": ["tong.*tai san"]},
+    {"id": "equity", "patterns": ["von chu so huu"]},
+    {"id": "employees", "patterns": ["so.*lao dong", "so.*nhan vien"]},
+    {"id": "employee_income", "patterns": ["thu nhap.*binh quan", "luong.*binh quan"]}
+  ],
+  "expected_reports": [
+    {"report_year": 2023, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2024, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2025, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2023, "report_type": "Financial", "financial_scope": "Consolidated"},
+    {"report_year": 2024, "report_type": "Financial", "financial_scope": "Consolidated"},
+    {"report_year": 2025, "report_type": "Financial", "financial_scope": "Consolidated"}
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "schema_version": "0.1",
+  "scope_note": "Catalogue of the nine demo rules as implemented. Every entry is a project-defined reconciliation; no entry is asserted to implement a specific GRI, IFRS S1, IFRS S2 or SASB requirement.",
+  "rules": [
+    {
+      "rule_id": "R01",
+      "engine_kind": "same_report_conflict",
+      "required_inputs": [
+        {
+          "role": "comparable_values",
+          "metric_ids": ["ghg_scope1"],
+          "cardinality": "at_least_2",
+          "constraints": {"unit": "tCO2e"}
+        }
+      ],
+      "applicability_conditions": [
+        "Records are grouped by company_id, report_year, observation_year, metric_id, unit and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket.",
+        "At least two records must remain in one group."
+      ],
+      "not_run_conditions": [
+        "Fewer than two matching records are present.",
+        "Company, reporting period, observation period, metric, unit, scope or verified reporting boundary differs."
+      ],
+      "finding_policy": {
+        "comparison": "max(value) - min(value) <= tolerance (1 tCO2e)",
+        "pass_status": "Supported",
+        "failure_status": "Contradicted",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "A failed comparison is downgraded from Contradicted to NeedsReview; a passing comparison remains Supported."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "arithmetic_consistency",
+        "description": "Detects differing values among otherwise comparable Scope 1 records in the demo corpus.",
+        "config_basis": "Project arithmetic consistency; not a conclusion of GRI non-compliance.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R02",
+      "engine_kind": "sum_parts",
+      "required_inputs": [
+        {
+          "role": "total",
+          "metric_ids": ["employees_total"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"report_year": 2025, "unit": "person"}
+        },
+        {
+          "role": "parts",
+          "metric_ids": ["employees_male", "employees_female"],
+          "cardinality": "exactly_1_selected_per_metric",
+          "constraints": {"report_year": 2025, "unit": "person"}
+        }
+      ],
+      "applicability_conditions": [
+        "Total and both parts share company_id, report_year, observation_year, unit and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket."
+      ],
+      "not_run_conditions": [
+        "Any total or part record is absent.",
+        "The records do not fall into the same comparison group."
+      ],
+      "finding_policy": {
+        "comparison": "employees_total - (employees_male + employees_female) == 0",
+        "pass_status": "Supported",
+        "failure_status": "NeedsReview",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "The configured failure status is already NeedsReview; no Contradicted conclusion is created."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "sum_of_parts",
+        "description": "Reconciles the selected employee total with the selected male and female components without asserting that the categories are exhaustive in every disclosure context.",
+        "config_basis": "Project reconciliation.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R03",
+      "engine_kind": "sum_parts",
+      "required_inputs": [
+        {
+          "role": "total",
+          "metric_ids": ["waste_total"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"report_year": 2025, "unit": "tonne"}
+        },
+        {
+          "role": "parts",
+          "metric_ids": ["waste_hazardous", "waste_nonhazardous"],
+          "cardinality": "exactly_1_selected_per_metric",
+          "constraints": {"report_year": 2025, "unit": "tonne"}
+        }
+      ],
+      "applicability_conditions": [
+        "Total and both classifications share company_id, report_year, observation_year, unit and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket."
+      ],
+      "not_run_conditions": [
+        "Any required total or classification record is absent.",
+        "The records do not fall into the same comparison group."
+      ],
+      "finding_policy": {
+        "comparison": "abs(waste_total - (waste_hazardous + waste_nonhazardous)) <= 0.02 tonne",
+        "pass_status": "Supported",
+        "failure_status": "NeedsReview",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "The configured failure status is already NeedsReview; no Contradicted conclusion is created."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "sum_of_parts",
+        "description": "Reconciles selected waste classifications using a demo rounding tolerance; category completeness is not established.",
+        "config_basis": "Project reconciliation with a 0.02 tonne tolerance for displayed rounding.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R04",
+      "engine_kind": "sum_parts",
+      "required_inputs": [
+        {
+          "role": "total",
+          "metric_ids": ["waste_total"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"report_year": 2025, "unit": "tonne"}
+        },
+        {
+          "role": "parts",
+          "metric_ids": ["waste_recycled", "waste_other_treatment"],
+          "cardinality": "exactly_1_selected_per_metric",
+          "constraints": {"report_year": 2025, "unit": "tonne"}
+        }
+      ],
+      "applicability_conditions": [
+        "Total and both treatment records share company_id, report_year, observation_year, unit and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket."
+      ],
+      "not_run_conditions": [
+        "Any required total or treatment record is absent.",
+        "The records do not fall into the same comparison group."
+      ],
+      "finding_policy": {
+        "comparison": "abs(waste_total - (waste_recycled + waste_other_treatment)) <= 0.02 tonne",
+        "pass_status": "Supported",
+        "failure_status": "NeedsReview",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "The configured failure status is already NeedsReview; no Contradicted conclusion is created."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "sum_of_parts",
+        "description": "Reconciles the selected treatment amounts with the selected waste total in the demo dataset.",
+        "config_basis": "Project reconciliation.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R05",
+      "engine_kind": "cross_report_revision",
+      "required_inputs": [
+        {
+          "role": "cross_report_values",
+          "metric_ids": ["ghg_total_unspecified"],
+          "cardinality": "at_least_2_report_years",
+          "constraints": {"unit": "tCO2e"}
+        }
+      ],
+      "applicability_conditions": [
+        "Records share company_id, metric_id, observation_year, unit and scope.",
+        "The group contains at least two distinct report_year values.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket."
+      ],
+      "not_run_conditions": [
+        "Only one reporting year is available for the same observation year.",
+        "Company, metric, observation period, unit, scope or verified reporting boundary differs."
+      ],
+      "finding_policy": {
+        "comparison": "max(value) - min(value) <= tolerance (1 tCO2e)",
+        "pass_status": "Supported",
+        "failure_status": "NeedsReview",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "The configured failure status is already NeedsReview; revisions can reflect restatement, method or boundary changes."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "temporal_consistency",
+        "description": "Flags a changed value for the same observation year across reports for review; it does not characterize the revision as misconduct.",
+        "config_basis": "Project temporal consistency.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R06",
+      "engine_kind": "subset",
+      "required_inputs": [
+        {
+          "role": "total",
+          "metric_ids": ["board_total"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"unit": "person"}
+        },
+        {
+          "role": "part",
+          "metric_ids": ["board_independent"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"unit": "person"}
+        }
+      ],
+      "applicability_conditions": [
+        "Part and total share company_id, report_year, observation_year, unit and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket."
+      ],
+      "not_run_conditions": [
+        "Either the board total or independent-member count is absent.",
+        "The records do not fall into the same comparison group."
+      ],
+      "finding_policy": {
+        "comparison": "board_independent <= board_total",
+        "pass_status": "Supported",
+        "failure_status": "Contradicted",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "A failed comparison is downgraded from Contradicted to NeedsReview; no legal minimum ratio is tested."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "set_cardinality",
+        "description": "Checks only that a disclosed subset count does not exceed its disclosed total.",
+        "config_basis": "Project set cardinality.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R07",
+      "engine_kind": "percent_change",
+      "required_inputs": [
+        {
+          "role": "old_value",
+          "metric_ids": ["ghg_intensity"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"report_year": 2025, "observation_year": 2024, "unit": "kgCO2e/t_product"}
+        },
+        {
+          "role": "new_value",
+          "metric_ids": ["ghg_intensity"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"report_year": 2025, "observation_year": 2025, "unit": "kgCO2e/t_product"}
+        },
+        {
+          "role": "stated_reduction",
+          "metric_ids": ["ghg_intensity_reduction"],
+          "cardinality": "exactly_1_selected",
+          "constraints": {"report_year": 2025, "observation_year": 2025}
+        }
+      ],
+      "applicability_conditions": [
+        "All three records share company_id, report_year and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket.",
+        "The old intensity value is not zero."
+      ],
+      "not_run_conditions": [
+        "Any old, new or stated-reduction record is absent.",
+        "The records do not fall into the same comparison group."
+      ],
+      "finding_policy": {
+        "comparison": "abs(((old - new) / old * 100) - stated_reduction) <= 0.5 percentage points",
+        "pass_status": "Supported",
+        "failure_status": "NeedsReview",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "The configured failure status is already NeedsReview.",
+        "special_cases": ["An old value of zero creates a NeedsReview finding without performing the percentage calculation."]
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "arithmetic_consistency",
+        "description": "Recomputes the stated reduction from two intensity values in the same report.",
+        "config_basis": "Project arithmetic with a tolerance for a stated whole-percentage reduction.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R08",
+      "engine_kind": "target",
+      "required_inputs": [
+        {
+          "role": "actual",
+          "metric_ids": ["eii"],
+          "cardinality": "exactly_1_selected_with_variant_not_target",
+          "constraints": {"report_year": 2023, "unit": "percent"}
+        },
+        {
+          "role": "target",
+          "metric_ids": ["eii"],
+          "cardinality": "exactly_1_selected_with_variant_target",
+          "constraints": {"report_year": 2023, "unit": "percent"}
+        }
+      ],
+      "applicability_conditions": [
+        "Actual and target share company_id, report_year, observation_year, unit and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket.",
+        "The configured direction is lower_is_better."
+      ],
+      "not_run_conditions": [
+        "Either an actual or target variant is absent.",
+        "The records do not fall into the same comparison group."
+      ],
+      "finding_policy": {
+        "comparison": "actual <= target + tolerance (0)",
+        "pass_status": "Supported",
+        "failure_status": "NeedsReview",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "The configured failure status is already NeedsReview; a target is not treated as an actual result."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "target_comparison",
+        "description": "Compares an actual value with a same-period target using the direction recorded in project configuration.",
+        "config_basis": "Project target comparison; lower-is-better is stated in the extracted source configuration.",
+        "standard_reference_ids": []
+      }
+    },
+    {
+      "rule_id": "R09",
+      "engine_kind": "sum_constant",
+      "required_inputs": [
+        {
+          "role": "shares",
+          "metric_ids": ["female_share", "male_share"],
+          "cardinality": "exactly_1_selected_per_metric",
+          "constraints": {"report_year": 2023, "unit": "percent"}
+        }
+      ],
+      "applicability_conditions": [
+        "Both shares share company_id, report_year, observation_year, unit and scope.",
+        "A verified reporting boundary must match; unverified boundaries share the unresolved boundary bucket."
+      ],
+      "not_run_conditions": [
+        "Either selected share is absent.",
+        "The records do not fall into the same comparison group."
+      ],
+      "finding_policy": {
+        "comparison": "abs((female_share + male_share) - 100) <= 0.1 percentage points",
+        "pass_status": "Supported",
+        "failure_status": "NeedsReview",
+        "missing_record_result": "not_run_no_finding",
+        "null_value_status": "InsufficientEvidence",
+        "unverified_boundary_effect": "The configured failure status is already NeedsReview; the rule does not infer underlying headcounts."
+      },
+      "basis": {
+        "basis_type": "project_defined_reconciliation",
+        "category": "sum_to_constant",
+        "description": "Checks whether the two selected displayed shares sum to 100 within the demo rounding tolerance.",
+        "config_basis": "Project arithmetic with a 0.1 percentage-point tolerance.",
+        "standard_reference_ids": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PDF-grounded Extract ESG handoff v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "document", "environment", "social", "governance", "coverage", "issue_log"],
+  "properties": {
+    "schema_version": {"const": "extract-esg-2.0"},
+    "document": {
+      "type": "object", "additionalProperties": false,
+      "required": ["company_id", "report_year", "report_type", "reporting_entity", "source_file", "source_id", "source_sha256", "source_pdf_path", "page_count", "page_system", "canonical_chunks_path", "canonical_chunks_sha256"],
+      "properties": {
+        "company_id": {"type": "string", "minLength": 1},
+        "report_year": {"type": "integer"}, "report_type": {"const": "ESG"},
+        "reporting_entity": {"type": "string", "minLength": 1},
+        "source_file": {"type": "string", "minLength": 1},
+        "source_id": {"type": "string", "minLength": 1},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_pdf_path": {"type": "string", "minLength": 1},
+        "source_locator": {"type": ["string", "null"]},
+        "page_count": {"type": "integer", "minimum": 1},
+        "page_system": {"const": "physical_pdf_page_1_based"},
+        "canonical_chunks_path": {"type": "string", "minLength": 1},
+        "canonical_chunks_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "reporting_period_start": {"type": ["string", "null"]},
+        "reporting_period_end": {"type": ["string", "null"]},
+        "publication_date": {"type": ["string", "null"]},
+        "extraction_timestamp": {"type": ["string", "null"]}
+      }
+    },
+    "environment": {"$ref": "#/$defs/section"},
+    "social": {"$ref": "#/$defs/section"},
+    "governance": {"$ref": "#/$defs/section"},
+    "coverage": {
+      "type": "object", "additionalProperties": true,
+      "required": ["status", "search_status", "parsed_ranges", "extracted_chunk_ids"],
+      "properties": {
+        "status": {"enum": ["complete", "partial", "failed"]},
+        "search_status": {"enum": ["not_searched", "partial_search", "searched", "search_failed"]},
+        "parsed_ranges": {"type": "array", "items": {"type": "array", "prefixItems": [{"type": "integer"}, {"type": "integer"}], "minItems": 2, "maxItems": 2}},
+        "extracted_chunk_ids": {"type": "array", "items": {"type": "string"}},
+        "search_outcomes": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+          "required": ["status", "topic"], "properties": {
+            "status": {"enum": ["not_searched", "searched_not_found", "parse_failure", "extraction_failure", "found", "disclosure_absence_confirmed"]},
+            "topic": {"type": "string"}, "metric_id": {"type": ["string", "null"]},
+            "source_pages": {"type": "array", "items": {"type": "integer", "minimum": 1}},
+            "reason": {"type": ["string", "null"]}, "reviewer": {"type": ["string", "null"]}}}}
+      }
+    },
+    "issue_log": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "section": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false,
+      "required": ["records"], "properties": {"records": {"type": "array", "items": {"$ref": "#/$defs/record"}}}}},
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_id", "source_id", "source_sha256", "page_system", "source_pages", "chunk_id", "char_start", "char_end", "original_text", "element_id"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "source_id": {"type": "string", "minLength": 1},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "page_system": {"const": "physical_pdf_page_1_based"},
+        "source_pages": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 1}},
+        "printed_page": {"type": ["string", "null"]},
+        "chunk_id": {"type": "string", "minLength": 1},
+        "char_start": {"type": "integer", "minimum": 0},
+        "char_end": {"type": "integer", "minimum": 1},
+        "original_text": {"type": "string", "minLength": 1},
+        "element_id": {"type": "string", "minLength": 1},
+        "bbox": {"type": ["object", "null"]},
+        "table_id": {"type": ["string", "null"]},
+        "row": {"type": ["integer", "null"]},
+        "column": {"type": ["integer", "null"]},
+        "header_evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "footnote_evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "alignment_status": {"enum": ["exact", "ambiguous", "unmapped"]}
+      }
+    },
+    "record": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_id", "claim_type", "value_status", "review_status", "extraction_status", "extraction_method", "observation_year", "reporting_boundary", "reporting_boundary_verified", "evidence", "uncertainty"],
+      "properties": {
+        "record_id": {"type": "string", "minLength": 1},
+        "claim_type": {"enum": ["claim", "measurement", "target", "policy", "governance_statement"]},
+        "metric_id": {"type": ["string", "null"]},
+        "metric_definition": {"type": ["string", "null"]},
+        "label": {"type": ["string", "null"]},
+        "value": {"type": ["number", "string", "boolean", "null"]},
+        "value_status": {"enum": ["available", "missing", "ambiguous", "unknown", "not_applicable"]},
+        "original_value": {"type": ["string", "null"]},
+        "original_unit": {"type": ["string", "null"]},
+        "original_scale": {"type": ["string", "null"]},
+        "unit": {"type": ["string", "null"]},
+        "normalization_note": {"type": ["string", "null"]},
+        "observation_year": {"type": ["integer", "null"]},
+        "year_basis": {"enum": ["explicit_quote", "table_header", "reviewed_context", "unknown"]},
+        "period_type": {"type": ["string", "null"]},
+        "period_type_verified": {"type": "boolean"},
+        "baseline_year": {"type": ["integer", "null"]},
+        "baseline_id": {"type": ["string", "null"]},
+        "target_deadline": {"type": ["string", "null"]},
+        "reporting_entity": {"type": ["string", "null"]},
+        "reporting_boundary": {"type": ["string", "null"]},
+        "reporting_boundary_verified": {"type": "boolean"},
+        "scope": {"type": ["string", "null"]},
+        "population_id": {"type": ["string", "null"]},
+        "counting_method": {"type": ["string", "null"]},
+        "review_status": {"enum": ["pending_human_review", "reviewed", "rejected"]},
+        "human_review": {"type": ["object", "null"], "additionalProperties": false,
+          "required": ["candidate_id", "candidate_pack_path", "candidate_pack_sha256", "decision_history_path", "decision_sha256", "reviewer", "reviewed_at_utc", "decision_status"],
+          "properties": {
+            "candidate_id": {"type": "string"}, "candidate_pack_path": {"type": "string"},
+            "candidate_pack_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "decision_history_path": {"type": "string"}, "decision_sha256": {"type": "string"},
+            "reviewer": {"type": "string"}, "reviewed_at_utc": {"type": "string"},
+            "decision_status": {"enum": ["accepted", "corrected"]}
+          }},
+        "extraction_status": {"enum": ["extracted", "ambiguous", "failed"]},
+        "extraction_method": {"enum": ["assisted", "langextract_cloud", "ai_assisted_candidate", "heuristic_candidate"]},
+        "model_id": {"type": ["string", "null"]},
+        "prompt_version": {"type": ["string", "null"]},
+        "schema_version": {"const": "extract-esg-2.0"},
+        "uncertainty": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}}
+      }
+    }
+  }
+}

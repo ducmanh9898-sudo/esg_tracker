@@ -1,0 +1,73 @@
+{
+  "schema_version": "0.1",
+  "cases": [
+    {
+      "case_id": "VC-INPUT-001",
+      "layer": "input",
+      "data_class": "synthetic",
+      "adjudication_status": "synthetic_expected",
+      "input_condition": "A claim omits a required company or period field.",
+      "expected_behavior": "Input validation fails before graph or rule evaluation."
+    },
+    {
+      "case_id": "VC-EVIDENCE-001",
+      "layer": "evidence_linkage",
+      "data_class": "synthetic",
+      "adjudication_status": "synthetic_expected",
+      "input_condition": "A finding references a claim whose evidence edge is absent.",
+      "expected_behavior": "Evidence linkage validation reports an error with the finding and evidence IDs."
+    },
+    {
+      "case_id": "VC-STANDARD-001",
+      "layer": "standard_mapping",
+      "data_class": "synthetic",
+      "adjudication_status": "synthetic_expected",
+      "input_condition": "A crosswalk mapping has verification_status=unverified.",
+      "expected_behavior": "No StandardReference edge or compliance/violation conclusion is created."
+    },
+    {
+      "case_id": "VC-RULE-001",
+      "layer": "rule",
+      "data_class": "synthetic",
+      "adjudication_status": "synthetic_expected",
+      "input_condition": "A required rule record is absent rather than explicitly present with a null value.",
+      "expected_behavior": "The rule does not run and does not create Contradicted or InsufficientEvidence."
+    },
+    {
+      "case_id": "VC-TEMPORAL-001",
+      "layer": "temporal_comparison",
+      "data_class": "synthetic",
+      "adjudication_status": "synthetic_expected",
+      "input_condition": "Two annual records have different unexplained verified reporting boundaries.",
+      "expected_behavior": "The pair is NeedsReview with comparison_performed=false."
+    },
+    {
+      "case_id": "VC-COMPANY-001",
+      "layer": "company_aggregation",
+      "data_class": "synthetic",
+      "adjudication_status": "synthetic_expected",
+      "input_condition": "The same exact finding is supplied twice under different IDs.",
+      "expected_behavior": "Company aggregation counts the finding once and records the exact duplicate removal."
+    },
+    {
+      "case_id": "VC-REAL-R01",
+      "layer": "rule",
+      "data_class": "real",
+      "adjudication_status": "pending_adjudication",
+      "input_condition": "BSR Scope 1 values C15 and C16 differ in the normalized extract.",
+      "expected_behavior": "Retain NeedsReview until reporting boundary and both PDF source locations are manually adjudicated.",
+      "references": ["C15", "C16", "R01"]
+    },
+    {
+      "case_id": "VC-REAL-TEMPORAL-BOARD",
+      "layer": "temporal_comparison",
+      "data_class": "real",
+      "adjudication_status": "pending_adjudication",
+      "input_condition": "BSR board_total is linked for report/observation years 2023, 2024 and 2025.",
+      "expected_behavior": "Keep both pairs NeedsReview because period type, boundary and original source text are not verified.",
+      "references": [
+        "CLM-996445BD36AE", "CLM-F698E79C8E8A", "CLM-936FE665DA79"
+      ]
+    }
+  ]
+}

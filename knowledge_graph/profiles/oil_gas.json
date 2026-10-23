@@ -1,0 +1,14 @@
+{
+  "profile_id":"oil_gas",
+  "version":"0.1",
+  "applicable_topics":{"E":["climate_and_ghg","energy","waste","water","spills"],"S":["workforce","health_and_safety"],"G":["board","governance"]},
+  "relevant_metrics":["ghg_scope1","ghg_intensity","eii","employees_total","board_total"],
+  "aliases":{"KNK":"greenhouse gas","HĐQT":"board of directors","EII":"Energy Intensity Index"},
+  "expected_evidence":{"quantitative_disclosure":["source_file","source_pages","json_pointer"],"target_disclosure":["target_period","source_file","source_pages"]},
+  "standards_applicability":{"GRI":"context_candidate","IFRS_S1":"context_candidate","SASB_Oil_Gas_Refining_Marketing":"industry_applicability_unverified"},
+  "industry_constraints":[],
+  "required_disclosures":[],
+  "temporal_revision_rules":[],
+  "benchmark_context":{"status":"not_established","note":"No industry threshold is asserted without reviewed source and applicability."},
+  "basis":"Candidate context from repository standards crosswalk and pilot roadmap; company applicability requires review."
+}

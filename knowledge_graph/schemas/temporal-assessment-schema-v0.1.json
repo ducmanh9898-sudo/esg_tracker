@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/esg/temporal-assessment-schema-v0.1.json",
+  "title": "Temporal assessment sample selection",
+  "type": "object",
+  "required": ["schema_version", "scope_note", "series"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "scope_note": {"type": "string", "minLength": 1},
+    "series": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "series_id", "concept_id", "company_id", "metric_id",
+          "claim_ids", "comparison_mode", "known_limitations"
+        ],
+        "properties": {
+          "series_id": {"type": "string", "pattern": "^TS-"},
+          "concept_id": {"type": "string", "minLength": 1},
+          "company_id": {"type": "string", "minLength": 1},
+          "metric_id": {"type": "string", "minLength": 1},
+          "claim_ids": {
+            "type": "array",
+            "minItems": 2,
+            "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^CLM-"}
+          },
+          "comparison_mode": {"const": "consecutive_observation_years"},
+          "known_limitations": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

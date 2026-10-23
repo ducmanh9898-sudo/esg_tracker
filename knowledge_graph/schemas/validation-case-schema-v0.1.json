@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/esg/validation-case-schema-v0.1.json",
+  "title": "Validation case catalogue",
+  "type": "object",
+  "required": ["schema_version", "cases"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id", "layer", "data_class", "adjudication_status",
+          "input_condition", "expected_behavior"
+        ],
+        "properties": {
+          "case_id": {"type": "string", "pattern": "^VC-"},
+          "layer": {
+            "enum": [
+              "input", "evidence_linkage", "standard_mapping", "rule",
+              "temporal_comparison", "company_aggregation"
+            ]
+          },
+          "data_class": {"enum": ["synthetic", "real"]},
+          "adjudication_status": {
+            "enum": ["synthetic_expected", "pending_adjudication", "adjudicated"]
+          },
+          "input_condition": {"type": "string", "minLength": 1},
+          "expected_behavior": {"type": "string", "minLength": 1},
+          "references": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

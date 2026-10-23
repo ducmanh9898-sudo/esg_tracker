@@ -1,0 +1,85 @@
+[
+  {
+    "schema_version": "0.1",
+    "record_type": "financial_disclosure",
+    "disclosure_id": "FIN-SYN-CAPEX-2025",
+    "company": {
+      "company_id": "SYNTHETIC-ACME",
+      "company_name": "Synthetic ACME"
+    },
+    "reporting_period": {
+      "fiscal_year": 2025,
+      "period_type": "duration",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "period_label": "FY2025"
+    },
+    "item": {
+      "item_id": "capital_expenditure",
+      "label": "Total capital expenditure",
+      "statement": "cash_flow_statement"
+    },
+    "value": 1000000000,
+    "unit": "VND",
+    "scope": {
+      "scope_id": "consolidated_group",
+      "description": "Synthetic consolidated group",
+      "verification_status": "verified"
+    },
+    "report": {
+      "report_id": "SYN-ACME-FS-2025",
+      "title": "Synthetic ACME financial statements 2025",
+      "report_type": "synthetic_financial_statement",
+      "source_uri": "synthetic://financial-fixtures/acme-2025"
+    },
+    "source_location": {
+      "source_uri": "synthetic://financial-fixtures/acme-2025/capex",
+      "location_type": "json_pointer",
+      "locator": "/records/0"
+    },
+    "original_text": "Synthetic fixture: total capital expenditure was VND 1,000,000,000.",
+    "data_status": "reported",
+    "status_note": "Synthetic value for contract testing only.",
+    "synthetic": true
+  },
+  {
+    "schema_version": "0.1",
+    "record_type": "financial_disclosure",
+    "disclosure_id": "FIN-SYN-ENV-PROVISION-2025",
+    "company": {
+      "company_id": "SYNTHETIC-ACME",
+      "company_name": "Synthetic ACME"
+    },
+    "reporting_period": {
+      "fiscal_year": 2025,
+      "period_type": "instant",
+      "period_end": "2025-12-31",
+      "period_label": "At 31 December 2025"
+    },
+    "item": {
+      "item_id": "environmental_provision",
+      "label": "Environmental provision",
+      "statement": "statement_of_financial_position"
+    },
+    "scope": {
+      "scope_id": "consolidated_group",
+      "description": "Synthetic consolidated group",
+      "verification_status": "unverified"
+    },
+    "report": {
+      "report_id": "SYN-ACME-FS-2025",
+      "title": "Synthetic ACME financial statements 2025",
+      "report_type": "synthetic_financial_statement",
+      "source_uri": "synthetic://financial-fixtures/acme-2025"
+    },
+    "source_location": {
+      "source_uri": "synthetic://financial-fixtures/acme-2025/environmental-provision",
+      "location_type": "json_pointer",
+      "locator": "/records/1"
+    },
+    "original_text": null,
+    "data_status": "not_found_by_extract",
+    "status_note": "The synthetic Extract attempt did not locate a value or original text. This is not confirmation that the report omitted the line and is not a zero balance.",
+    "synthetic": true
+  }
+]

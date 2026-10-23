@@ -1,0 +1,132 @@
+[
+  {
+    "id": "R01",
+    "name": "Hai giá trị cùng chỉ tiêu, kỳ và báo cáo",
+    "kind": "same_report_conflict",
+    "metrics": [
+      "ghg_scope1"
+    ],
+    "tolerance": 1,
+    "unit": "tCO2e",
+    "failure": "Contradicted",
+    "basis": "Project arithmetic consistency; không phải kết luận vi phạm GRI",
+    "guard": "Cùng company/report/period/metric/unit/scope; không bỏ giá trị alternative."
+  },
+  {
+    "id": "R02",
+    "name": "Đối soát tổng và các thành phần",
+    "kind": "sum_parts",
+    "total": "employees_total",
+    "parts": [
+      "employees_male",
+      "employees_female"
+    ],
+    "report_year": 2025,
+    "tolerance": 0,
+    "unit": "person",
+    "failure": "NeedsReview",
+    "basis": "Project reconciliation",
+    "guard": "Các phần cùng kỳ/phạm vi/đơn vị. Chưa xác minh danh mục là đầy đủ nên chênh lệch chỉ là NeedsReview."
+  },
+  {
+    "id": "R03",
+    "name": "Đối soát phân loại chất thải",
+    "kind": "sum_parts",
+    "total": "waste_total",
+    "parts": [
+      "waste_hazardous",
+      "waste_nonhazardous"
+    ],
+    "report_year": 2025,
+    "tolerance": 0.02,
+    "unit": "tonne",
+    "failure": "NeedsReview",
+    "basis": "Project reconciliation; sai số làm tròn ba số 2 chữ số thập phân <= 0.015 tấn",
+    "guard": "Không ép các nhóm là đầy đủ khi chưa kiểm tra PDF gốc."
+  },
+  {
+    "id": "R04",
+    "name": "Đối soát phương thức xử lý chất thải",
+    "kind": "sum_parts",
+    "total": "waste_total",
+    "parts": [
+      "waste_recycled",
+      "waste_other_treatment"
+    ],
+    "report_year": 2025,
+    "tolerance": 0.02,
+    "unit": "tonne",
+    "failure": "NeedsReview",
+    "basis": "Project reconciliation",
+    "guard": "Supported chỉ nghĩa là phép cộng trong tập số liệu khớp."
+  },
+  {
+    "id": "R05",
+    "name": "Cùng năm đo, khác năm báo cáo",
+    "kind": "cross_report_revision",
+    "metrics": [
+      "ghg_total_unspecified"
+    ],
+    "tolerance": 1,
+    "unit": "tCO2e",
+    "failure": "NeedsReview",
+    "basis": "Project temporal consistency",
+    "guard": "Không kết luận gian lận: có thể do restatement hoặc thay đổi boundary/method chưa được trích."
+  },
+  {
+    "id": "R06",
+    "name": "Thành viên độc lập không vượt tổng HĐQT",
+    "kind": "subset",
+    "total": "board_total",
+    "part": "board_independent",
+    "tolerance": 0,
+    "unit": "person",
+    "failure": "Contradicted",
+    "basis": "Project set cardinality",
+    "guard": "Thiếu part -> InsufficientEvidence, không tự gán 0; không kiểm tra tỷ lệ tối thiểu theo luật."
+  },
+  {
+    "id": "R07",
+    "name": "Đối chiếu phần trăm giảm được công bố",
+    "kind": "percent_change",
+    "metric": "ghg_intensity",
+    "claim_metric": "ghg_intensity_reduction",
+    "report_year": 2025,
+    "from_year": 2024,
+    "to_year": 2025,
+    "tolerance": 0.5,
+    "unit": "kgCO2e/t_product",
+    "failure": "NeedsReview",
+    "basis": "Project arithmetic; số giảm công bố được làm tròn đến phần trăm nguyên",
+    "guard": "Dùng hai năm từ cùng báo cáo; kiểm tra mẫu số > 0; không so cường độ với phát thải tuyệt đối."
+  },
+  {
+    "id": "R08",
+    "name": "Đối chiếu EII với mục tiêu cùng kỳ",
+    "kind": "target",
+    "metric": "eii",
+    "report_year": 2023,
+    "tolerance": 0,
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "failure": "NeedsReview",
+    "basis": "Project target comparison; lower-is-better được ghi trong nguồn trích",
+    "guard": "Không dùng kế hoạch làm kết quả thực hiện; chỉ chạy khi có actual và target cùng kỳ/phạm vi."
+  },
+  {
+    "id": "R09",
+    "name": "Tổng tỷ lệ nam và nữ",
+    "kind": "sum_constant",
+    "metrics": [
+      "female_share",
+      "male_share"
+    ],
+    "report_year": 2023,
+    "expected": 100,
+    "tolerance": 0.1,
+    "unit": "percent",
+    "failure": "NeedsReview",
+    "basis": "Project arithmetic; hai tỷ lệ hiển thị một chữ số thập phân",
+    "guard": "Chỉ kiểm tra tổng tỷ lệ đã chọn, không suy diễn số đếm."
+  }
+]

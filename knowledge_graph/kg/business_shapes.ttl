@@ -1,0 +1,14 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix esg: <https://example.org/esg/core#> .
+
+# A rule audit. Findings are produced by business evaluation in Python;
+# this shape blocks a strong status if its required graph context is absent.
+esg:ContradictionGuardShape a sh:NodeShape ;
+  sh:targetClass esg:Finding ;
+  sh:sparql [ sh:message "Contradicted requires a verified reporting boundary on each input claim." ;
+    sh:severity sh:Violation ;
+    sh:select """SELECT $this WHERE {
+      $this <https://example.org/esg/core#status> "Contradicted" ;
+            <https://example.org/esg/core#inputClaim> ?claim .
+      FILTER NOT EXISTS { ?claim <https://example.org/esg/core#boundaryVerified> true }
+    }""" ] .

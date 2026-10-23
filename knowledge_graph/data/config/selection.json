@@ -1,0 +1,559 @@
+[
+  {
+    "selection_id": "C01",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/production_and_total_emissions_series/2/ghg_tCO2e",
+    "metric_id": "ghg_total_unspecified",
+    "label": "Tổng phát thải KNK",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "tCO2e",
+    "source_pages": [
+      30
+    ],
+    "observation_year": 2023,
+    "scope": "ghg_scope_unspecified",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C02",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/social/workforce/gender_percent/female",
+    "metric_id": "female_share",
+    "label": "Tỷ lệ lao động nữ",
+    "dimension": "S",
+    "topic": "workforce",
+    "unit": "percent",
+    "source_pages": [
+      32
+    ],
+    "observation_year": 2023,
+    "scope": "reported_workforce",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C03",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/social/workforce/gender_percent/male",
+    "metric_id": "male_share",
+    "label": "Tỷ lệ lao động nam",
+    "dimension": "S",
+    "topic": "workforce",
+    "unit": "percent",
+    "source_pages": [
+      32
+    ],
+    "observation_year": 2023,
+    "scope": "reported_workforce",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C04",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/governance/board_and_sustainability_oversight/board_members",
+    "metric_id": "board_total",
+    "label": "Số thành viên HĐQT",
+    "dimension": "G",
+    "topic": "board",
+    "unit": "person",
+    "source_pages": [
+      36
+    ],
+    "observation_year": 2023,
+    "scope": "board",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C05",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/governance/board_and_sustainability_oversight/chair_CEO_separation",
+    "metric_id": "chair_ceo_separate",
+    "label": "Tách Chủ tịch và Tổng giám đốc",
+    "dimension": "G",
+    "topic": "board",
+    "unit": "boolean",
+    "source_pages": [
+      36
+    ],
+    "observation_year": 2023,
+    "scope": "board",
+    "claim_type": "governance_statement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C06",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/environment/headline_metrics/0/value",
+    "metric_id": "eii",
+    "label": "Chỉ số cường độ năng lượng EII",
+    "dimension": "E",
+    "topic": "energy",
+    "unit": "percent",
+    "source_pages": [
+      25
+    ],
+    "observation_year": 2023,
+    "scope": "refinery_eii",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C07",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/environment/headline_metrics/0/target_value",
+    "metric_id": "eii",
+    "label": "Mục tiêu EII",
+    "dimension": "E",
+    "topic": "energy",
+    "unit": "percent",
+    "source_pages": [
+      25
+    ],
+    "observation_year": 2023,
+    "scope": "refinery_eii",
+    "claim_type": "target",
+    "variant": "target",
+    "direction": "lower_is_better"
+  },
+  {
+    "selection_id": "C08",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2023_esg.json",
+    "source_pointer": "/environment/headline_metrics/3/value",
+    "metric_id": "freshwater_use",
+    "label": "Nước ngọt sử dụng",
+    "dimension": "E",
+    "topic": "water",
+    "unit": "m3",
+    "source_pages": [
+      26
+    ],
+    "observation_year": 2023,
+    "scope": "freshwater",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C09",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2024_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/0/series/2/ghg_tCO2e",
+    "metric_id": "ghg_total_unspecified",
+    "label": "Tổng KNK 2023 trình bày lại năm 2024",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "tCO2e",
+    "source_pages": [
+      29
+    ],
+    "observation_year": 2023,
+    "scope": "ghg_scope_unspecified",
+    "claim_type": "reported_measurement",
+    "variant": "historical_comparator"
+  },
+  {
+    "selection_id": "C10",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2024_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/0/series/3/ghg_tCO2e",
+    "metric_id": "ghg_total_unspecified",
+    "label": "Tổng phát thải KNK",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "tCO2e",
+    "source_pages": [
+      29
+    ],
+    "observation_year": 2024,
+    "scope": "ghg_scope_unspecified",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C11",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2024_esg.json",
+    "source_pointer": "/governance/board_and_sustainability_oversight/0/metrics/board_members",
+    "metric_id": "board_total",
+    "label": "Số thành viên HĐQT",
+    "dimension": "G",
+    "topic": "board",
+    "unit": "person",
+    "source_pages": [
+      37
+    ],
+    "observation_year": 2024,
+    "scope": "board",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C12",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2024_esg.json",
+    "source_pointer": "/governance/board_and_sustainability_oversight/0/metrics/independent_board_members",
+    "metric_id": "board_independent",
+    "label": "Thành viên HĐQT độc lập",
+    "dimension": "G",
+    "topic": "board",
+    "unit": "person",
+    "source_pages": [
+      37
+    ],
+    "observation_year": 2024,
+    "scope": "board",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C13",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2024_esg.json",
+    "source_pointer": "/social/workforce_and_local_presence/0/value",
+    "metric_id": "employees_total",
+    "label": "Tổng lao động",
+    "dimension": "S",
+    "topic": "workforce",
+    "unit": "person",
+    "source_pages": [
+      31,
+      33
+    ],
+    "observation_year": 2024,
+    "scope": "reported_workforce",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C14",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2024_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/4/phase_1_MWp",
+    "metric_id": "solar_capacity",
+    "label": "Điện mặt trời giai đoạn 1 dự kiến",
+    "dimension": "E",
+    "topic": "energy",
+    "unit": "MWp",
+    "source_pages": [
+      41
+    ],
+    "observation_year": 2024,
+    "scope": "planned_solar_phase_1",
+    "claim_type": "planned_capacity",
+    "variant": "reported",
+    "realization": "planned"
+  },
+  {
+    "selection_id": "C15",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/scope_1_tCO2e_series_primary/3/value",
+    "metric_id": "ghg_scope1",
+    "label": "Scope 1 tại chuỗi số liệu chính",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "tCO2e",
+    "source_pages": [
+      29,
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "scope1",
+    "claim_type": "reported_measurement",
+    "variant": "primary"
+  },
+  {
+    "selection_id": "C16",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/appendix_alternative_2025_values/scope_1_tCO2e",
+    "metric_id": "ghg_scope1",
+    "label": "Scope 1 tại bảng phụ lục khác",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "tCO2e",
+    "source_pages": [
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "scope1",
+    "claim_type": "reported_measurement",
+    "variant": "appendix_alternative"
+  },
+  {
+    "selection_id": "C17",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/scope_2_tCO2e_series/3/value",
+    "metric_id": "ghg_scope2",
+    "label": "Phát thải Scope 2",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "tCO2e",
+    "source_pages": [
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "scope2",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C18",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/intensity_kgCO2e_per_tonne_product_series/2/value",
+    "metric_id": "ghg_intensity",
+    "label": "Cường độ KNK năm 2024 trong báo cáo 2025",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "kgCO2e/t_product",
+    "source_pages": [
+      29,
+      65
+    ],
+    "observation_year": 2024,
+    "scope": "reported_product_intensity",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C19",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/climate_and_ghg/intensity_kgCO2e_per_tonne_product_series/3/value",
+    "metric_id": "ghg_intensity",
+    "label": "Cường độ KNK năm 2025",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "kgCO2e/t_product",
+    "source_pages": [
+      29,
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "reported_product_intensity",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C20",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/headline_metrics/3/value",
+    "metric_id": "ghg_intensity_reduction",
+    "label": "Mức giảm cường độ KNK so với 2024",
+    "dimension": "E",
+    "topic": "climate",
+    "unit": "percent",
+    "source_pages": [
+      13,
+      29
+    ],
+    "observation_year": 2025,
+    "scope": "reported_product_intensity",
+    "claim_type": "quantitative_change",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C21",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/social/workforce/total_employees",
+    "metric_id": "employees_total",
+    "label": "Tổng lao động",
+    "dimension": "S",
+    "topic": "workforce",
+    "unit": "person",
+    "source_pages": [
+      39,
+      66
+    ],
+    "observation_year": 2025,
+    "scope": "reported_workforce",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C22",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/social/workforce/male_employees_reported",
+    "metric_id": "employees_male",
+    "label": "Lao động nam",
+    "dimension": "S",
+    "topic": "workforce",
+    "unit": "person",
+    "source_pages": [
+      39,
+      66
+    ],
+    "observation_year": 2025,
+    "scope": "reported_workforce",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C23",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/social/workforce/female_employees_reported",
+    "metric_id": "employees_female",
+    "label": "Lao động nữ",
+    "dimension": "S",
+    "topic": "workforce",
+    "unit": "person",
+    "source_pages": [
+      39,
+      66
+    ],
+    "observation_year": 2025,
+    "scope": "reported_workforce",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C24",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/waste_and_circularity/2025/total_waste_tonnes",
+    "metric_id": "waste_total",
+    "label": "Tổng chất thải",
+    "dimension": "E",
+    "topic": "waste",
+    "unit": "tonne",
+    "source_pages": [
+      31,
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "reported_waste",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C25",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/waste_and_circularity/2025/hazardous_waste_tonnes",
+    "metric_id": "waste_hazardous",
+    "label": "Chất thải nguy hại",
+    "dimension": "E",
+    "topic": "waste",
+    "unit": "tonne",
+    "source_pages": [
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "reported_waste",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C26",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/waste_and_circularity/2025/non_hazardous_waste_tonnes",
+    "metric_id": "waste_nonhazardous",
+    "label": "Chất thải không nguy hại",
+    "dimension": "E",
+    "topic": "waste",
+    "unit": "tonne",
+    "source_pages": [
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "reported_waste",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C27",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/waste_and_circularity/2025/recycled_or_reused_tonnes",
+    "metric_id": "waste_recycled",
+    "label": "Chất thải tái chế / tái sử dụng",
+    "dimension": "E",
+    "topic": "waste",
+    "unit": "tonne",
+    "source_pages": [
+      31,
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "reported_waste",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C28",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/environment/waste_and_circularity/2025/landfill_or_final_treatment_tonnes",
+    "metric_id": "waste_other_treatment",
+    "label": "Chất thải chôn lấp / xử lý cuối",
+    "dimension": "E",
+    "topic": "waste",
+    "unit": "tonne",
+    "source_pages": [
+      31,
+      65
+    ],
+    "observation_year": 2025,
+    "scope": "reported_waste",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C29",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/governance/board_and_sustainability_oversight/board_members",
+    "metric_id": "board_total",
+    "label": "Số thành viên HĐQT",
+    "dimension": "G",
+    "topic": "board",
+    "unit": "person",
+    "source_pages": [
+      50,
+      51,
+      66
+    ],
+    "observation_year": 2025,
+    "scope": "board",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  },
+  {
+    "selection_id": "C30",
+    "company_id": "BSR",
+    "source_path": "esg/BSR_2025_esg.json",
+    "source_pointer": "/governance/board_and_sustainability_oversight/independent_board_members",
+    "metric_id": "board_independent",
+    "label": "Thành viên HĐQT độc lập",
+    "dimension": "G",
+    "topic": "board",
+    "unit": "person",
+    "source_pages": [
+      50,
+      51,
+      66
+    ],
+    "observation_year": 2025,
+    "scope": "board",
+    "claim_type": "reported_measurement",
+    "variant": "reported"
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthetic-compatible Extract ESG report handoff v1",
+  "type": "object",
+  "required": ["schema_version", "document", "coverage", "issue_log"],
+  "properties": {
+    "schema_version": {"const": "extract-esg-1.0"},
+    "document": {
+      "type": "object",
+      "required": ["company_id", "report_year", "report_type", "reporting_entity", "source_file"],
+      "properties": {
+        "company_id": {"type": "string", "minLength": 1},
+        "report_year": {"type": "integer"},
+        "report_type": {"const": "ESG"},
+        "reporting_entity": {"type": "string", "minLength": 1},
+        "source_file": {"type": "string", "minLength": 1},
+        "source_locator": {"type": ["string", "null"]},
+        "reporting_period_start": {"type": ["string", "null"]},
+        "reporting_period_end": {"type": ["string", "null"]},
+        "publication_date": {"type": ["string", "null"]},
+        "extraction_timestamp": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "environment": {"$ref": "#/$defs/section"},
+    "social": {"$ref": "#/$defs/section"},
+    "governance": {"$ref": "#/$defs/section"},
+    "coverage": {"type": "object", "required": ["status"], "properties": {"status": {"type": "string"}}, "additionalProperties": true},
+    "issue_log": {"type": "array", "items": {"type": "object"}}
+  },
+  "anyOf": [{"required": ["environment"]}, {"required": ["social"]}, {"required": ["governance"]}],
+  "$defs": {
+    "section": {"type": "object", "additionalProperties": {"type": "object", "required": ["records"], "properties": {"records": {"type": "array", "items": {"$ref": "#/$defs/record"}}}, "additionalProperties": true}},
+    "record": {
+      "type": "object",
+      "required": ["record_id", "evidence_id", "claim_type"],
+      "properties": {
+        "record_id": {"type": "string", "minLength": 1},
+        "evidence_id": {"type": "string", "minLength": 1},
+        "claim_type": {"enum": ["measurement", "target", "policy", "governance_statement"]},
+        "metric_id": {"type": ["string", "null"], "minLength": 1},
+        "metric_definition": {"type": ["string", "null"]},
+        "year": {"type": ["integer", "null"]},
+        "period_type": {"type": ["string", "null"]},
+        "period_type_verified": {"type": "boolean"},
+        "reporting_boundary": {"type": ["string", "null"]},
+        "reporting_boundary_verified": {"type": "boolean"},
+        "value": {"type": ["number", "string", "boolean", "null"]},
+        "value_status": {"enum": ["available", "missing", "ambiguous", "unknown", "not_applicable"]},
+        "unit": {"type": ["string", "null"]},
+        "scope": {"type": ["string", "null"]},
+        "source_pages": {"type": "array", "items": {"type": "integer"}},
+        "original_text": {"type": ["string", "null"]},
+        "review_status": {"type": "string"},
+        "extraction_status": {"type": "string"},
+        "uncertainty": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

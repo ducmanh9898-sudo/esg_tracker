@@ -1,0 +1,66 @@
+{
+  "records": [
+    {
+      "report_year": 2023,
+      "physical_page": 29,
+      "dimension": "S",
+      "topic": "S_WORKFORCE",
+      "metric_label": "Tổng số lao động",
+      "original_value": "1.532",
+      "normalized_value": 1532,
+      "original_unit": "người",
+      "normalized_unit": "people",
+      "observation_year": 2023,
+      "measurement_date": "2023-12-31",
+      "quote_method": "visual_transcription",
+      "exact_quote": "Tổng số lao động tại thời điểm 31/12/2023 là: 1.532 người, trong đó:",
+      "uncertainty": ["2023_pdf_text_encoding_garbled", "visual_transcription_requires_human_check"]
+    },
+    {
+      "report_year": 2024,
+      "physical_page": 29,
+      "dimension": "S",
+      "topic": "S_WORKFORCE",
+      "metric_label": "Tổng số lao động",
+      "original_value": "1.544",
+      "normalized_value": 1544,
+      "original_unit": "người",
+      "normalized_unit": "people",
+      "observation_year": 2024,
+      "measurement_date": "2024-12-31",
+      "quote_method": "pdf_text",
+      "uncertainty": ["annual_esg_boundary_equivalence_unreviewed"]
+    },
+    {
+      "report_year": 2025,
+      "physical_page": 28,
+      "dimension": "S",
+      "topic": "S_WORKFORCE",
+      "metric_label": "Tổng số lao động",
+      "original_value": "1.594",
+      "anchor_before": "Tính đến thời điểm 31/12/2025",
+      "normalized_value": 1594,
+      "original_unit": "người",
+      "normalized_unit": "people",
+      "observation_year": 2025,
+      "measurement_date": "2025-12-31",
+      "quote_method": "pdf_text",
+      "uncertainty": ["annual_esg_boundary_equivalence_unreviewed"]
+    },
+    {
+      "report_year": 2025,
+      "physical_page": 8,
+      "dimension": "E",
+      "topic": "E_ENERGY",
+      "metric_label": "Tỷ lệ tiêu thụ năng lượng và hao hụt",
+      "original_value": "7,20",
+      "normalized_value": 7.2,
+      "original_unit": "%",
+      "normalized_unit": "%",
+      "observation_year": null,
+      "measurement_date": null,
+      "quote_method": "pdf_text",
+      "uncertainty": ["observation_year_not_explicit_in_quote", "metric_definition_equivalence_unreviewed"]
+    }
+  ]
+}

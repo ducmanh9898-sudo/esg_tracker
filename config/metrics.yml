@@ -1,0 +1,162 @@
+metrics:
+  GHG_SCOPE_1:
+    name: "Phát thải khí nhà kính Phạm vi 1"
+    name_vi: "Phát thải trực tiếp Phạm vi 1"
+    name_en: "Scope 1 greenhouse gas emissions"
+    variants: ["scope 1", "phạm vi 1", "phát thải trực tiếp"]
+    standard_unit: "tCO2e"
+    gri_reference: "GRI 305-1; GRI 11.1"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_scope", "same_boundary", "convertible_unit", "absolute_value"]
+    tolerance: 0.01
+  GHG_SCOPE_2:
+    name: "Phát thải khí nhà kính Phạm vi 2"
+    name_vi: "Phát thải gián tiếp Phạm vi 2"
+    name_en: "Scope 2 greenhouse gas emissions"
+    variants: ["scope 2", "phạm vi 2", "điện mua"]
+    standard_unit: "tCO2e"
+    gri_reference: "GRI 305-2; GRI 11.1"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_scope", "same_boundary", "convertible_unit", "absolute_value"]
+    tolerance: 0.01
+  GHG_INTENSITY:
+    name: "Cường độ phát thải khí nhà kính"
+    name_vi: "Cường độ phát thải"
+    name_en: "GHG emissions intensity"
+    variants: ["cường độ phát thải", "ghg intensity", "co2e trên sản phẩm"]
+    standard_unit: "tCO2e/tấn sản phẩm"
+    gri_reference: "GRI 305-4; GRI 11.1"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "same_denominator", "intensity_value"]
+    tolerance: 0.02
+  ENERGY_TOTAL:
+    name: "Tổng năng lượng tiêu thụ"
+    name_vi: "Tổng năng lượng"
+    name_en: "Total energy consumption"
+    variants: ["tổng năng lượng", "năng lượng tiêu thụ", "energy consumption"]
+    standard_unit: "GJ"
+    gri_reference: "GRI 302-1; GRI 11.1"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "convertible_unit", "absolute_value"]
+    tolerance: 0.01
+  WATER_WITHDRAWAL:
+    name: "Tổng lượng nước khai thác"
+    name_vi: "Nước khai thác"
+    name_en: "Water withdrawal"
+    variants: ["nước khai thác", "nước đầu vào", "water withdrawal", "nước biển", "nước ngọt"]
+    standard_unit: "m3"
+    gri_reference: "GRI 303-3; GRI 11.6"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "convertible_unit"]
+    tolerance: 0.02
+  WATER_DISCHARGE:
+    name: "Tổng lượng nước xả"
+    name_vi: "Nước thải xả"
+    name_en: "Water discharge"
+    variants: ["nước xả", "nước thải", "water discharge", "effluent"]
+    standard_unit: "m3"
+    gri_reference: "GRI 303-4; GRI 11.6"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "convertible_unit"]
+    tolerance: 0.02
+  HAZARDOUS_WASTE:
+    name: "Chất thải nguy hại"
+    name_vi: "Chất thải nguy hại"
+    name_en: "Hazardous waste"
+    variants: ["chất thải nguy hại", "hazardous waste", "ctnh"]
+    standard_unit: "tấn"
+    gri_reference: "GRI 306-3; GRI 11.5"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "convertible_unit"]
+    tolerance: 0.02
+  NON_HAZ_WASTE:
+    name: "Chất thải không nguy hại"
+    name_vi: "Chất thải thông thường"
+    name_en: "Non-hazardous waste"
+    variants: ["chất thải không nguy hại", "chất thải thông thường", "non-hazardous waste"]
+    standard_unit: "tấn"
+    gri_reference: "GRI 306-3; GRI 11.5"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "convertible_unit"]
+    tolerance: 0.02
+  SPILL_COUNT:
+    name: "Số sự cố tràn dầu"
+    name_vi: "Sự cố tràn dầu"
+    name_en: "Oil spill count"
+    variants: ["tràn dầu", "sự cố môi trường", "oil spill"]
+    standard_unit: "vụ"
+    gri_reference: "GRI 306-3 (2016); GRI 11.8"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary"]
+    tolerance: 0
+  LTIFR:
+    name: "Tần suất tai nạn mất ngày công"
+    name_vi: "Tỷ lệ mất ngày công"
+    name_en: "Lost time injury frequency rate"
+    variants: ["ltifr", "tai nạn mất ngày công", "lost time injury"]
+    standard_unit: "ca/triệu giờ công"
+    gri_reference: "GRI 403-9; GRI 11.9"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "same_denominator"]
+    tolerance: 0.02
+  TRIR:
+    name: "Tỷ lệ thương tật ghi nhận"
+    name_vi: "Tỷ lệ thương tật"
+    name_en: "Total recordable incident rate"
+    variants: ["trir", "tỷ lệ thương tật", "recordable injury"]
+    standard_unit: "ca/triệu giờ công"
+    gri_reference: "GRI 403-9; GRI 11.9"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "same_denominator"]
+    tolerance: 0.02
+  TRAINING_HOURS:
+    name: "Giờ đào tạo bình quân"
+    name_vi: "Giờ đào tạo"
+    name_en: "Training hours"
+    variants: ["giờ đào tạo", "đào tạo an toàn", "training hours"]
+    standard_unit: "giờ/người/năm"
+    gri_reference: "GRI 404-1"
+    direction: "HIGHER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "same_denominator"]
+    tolerance: 0.02
+  ENV_CAPEX:
+    name: "Đầu tư vốn cho môi trường"
+    name_vi: "CAPEX môi trường"
+    name_en: "Environmental capital expenditure"
+    variants: ["capex môi trường", "đầu tư môi trường", "environmental capex"]
+    standard_unit: "VND"
+    gri_reference: "GRI 201; GRI 11.2"
+    direction: "HIGHER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "same_financial_class"]
+    tolerance: 0.01
+  ENV_EXPENSE:
+    name: "Chi phí hoạt động môi trường"
+    name_vi: "OPEX môi trường"
+    name_en: "Environmental operating expense"
+    variants: ["opex môi trường", "chi phí môi trường", "environmental expense"]
+    standard_unit: "VND"
+    gri_reference: "GRI 201; GRI 11.2"
+    direction: "HIGHER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "same_financial_class"]
+    tolerance: 0.01
+  ENV_FINE:
+    name: "Tiền phạt môi trường"
+    name_vi: "Tiền phạt vi phạm môi trường"
+    name_en: "Environmental fines"
+    variants: ["phạt môi trường", "environmental fine", "vi phạm môi trường"]
+    standard_unit: "VND"
+    gri_reference: "GRI 2-27; GRI 11"
+    direction: "LOWER_IS_BETTER"
+    comparable_when: ["same_period", "same_boundary", "convertible_unit"]
+    tolerance: 0.01
+  TAX_PAID:
+    name: "Thuế và khoản nộp ngân sách"
+    name_vi: "Nộp ngân sách"
+    name_en: "Tax paid"
+    variants: ["nộp ngân sách", "thuế đã nộp", "tax paid", "payments to government"]
+    standard_unit: "VND"
+    gri_reference: "GRI 207; GRI 11.21"
+    direction: "NEUTRAL"
+    comparable_when: ["same_period", "same_boundary", "convertible_unit"]
+    tolerance: 0.01
+

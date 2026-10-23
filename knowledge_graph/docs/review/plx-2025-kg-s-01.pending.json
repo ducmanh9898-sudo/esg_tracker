@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "purpose": "REAL-S-PLX-2025 proposal from official PDF physical page 70; all six annotations pending reviewer confirmation",
+  "source_reviews": [
+    {
+      "annotation_id": "SRC-CLM-63C08488CE814480",
+      "company_id": "PLX",
+      "report_id": "PLX:2025:ESG:unknown:PLX_2025_esg.json",
+      "record_id": "CLM-63C08488CE814480",
+      "extract_path": "data/extract/esg/PLX_2025_esg.json",
+      "extract_sha256": "47e7846a4d6bb6db9a7de9816c032d1e489e9433d4d81fd8861301c5c32a6959",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-0C6263BB3B7FBC67",
+          "source_file": "PLX_2025.pdf",
+          "source_pages": [
+            7,
+            70,
+            74
+          ],
+          "json_pointer": "/social/workforce_profile/total_employees",
+          "original_text": "là 19.367 người"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official Petrolimex Sustainability Report 2025 PDF (https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/f7544d67596046169c12cfa96afdc1e1/PLX%20BC%20PTBV%202025%20TV%200106.pdf), physical page 70 / printed spread 138-139; PDF SHA-256 480e348200bcb298e803c69d3477ccf00f2a261a5847f3273dd2dac53c967232. The Extract source_pages [7,70,74] are retained exactly; the quoted workforce paragraph and gender chart are on physical page 70. Rendered source image: docs/review/plx-2025-workforce-source-p70.png. The paragraph states 19,367 CBCNV as of 31/12/2025 for the petroleum business segment (Group and 34 single-member Petrolimex LLCs). Pending human source review.",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    },
+    {
+      "annotation_id": "SRC-CLM-6D11DAA742C071EE",
+      "company_id": "PLX",
+      "report_id": "PLX:2025:ESG:unknown:PLX_2025_esg.json",
+      "record_id": "CLM-6D11DAA742C071EE",
+      "extract_path": "data/extract/esg/PLX_2025_esg.json",
+      "extract_sha256": "47e7846a4d6bb6db9a7de9816c032d1e489e9433d4d81fd8861301c5c32a6959",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-0CC95E74D7CDD6F2",
+          "source_file": "PLX_2025.pdf",
+          "source_pages": [
+            7,
+            70,
+            74
+          ],
+          "json_pointer": "/social/workforce_profile/by_gender/female/count",
+          "original_text": "NỮ                  5.847 người"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official Petrolimex Sustainability Report 2025 PDF (https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/f7544d67596046169c12cfa96afdc1e1/PLX%20BC%20PTBV%202025%20TV%200106.pdf), physical page 70 / printed spread 138-139; PDF SHA-256 480e348200bcb298e803c69d3477ccf00f2a261a5847f3273dd2dac53c967232. The Extract source_pages [7,70,74] are retained exactly; the quoted workforce paragraph and gender chart are on physical page 70. Rendered source image: docs/review/plx-2025-workforce-source-p70.png. The gender chart under the workforce composition heading states female 5,847 people; the heading repeats Group and 34 single-member Petrolimex LLCs. Pending human source review.",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    }
+  ],
+  "mapping_reviews": [
+    {
+      "annotation_id": "MAP-KG-S-01-CLM-63C08488CE814480-employees_total_count",
+      "company_id": "PLX",
+      "report_id": "PLX:2025:ESG:unknown:PLX_2025_esg.json",
+      "record_id": "CLM-63C08488CE814480",
+      "extract_path": "data/extract/esg/PLX_2025_esg.json",
+      "extract_sha256": "47e7846a4d6bb6db9a7de9816c032d1e489e9433d4d81fd8861301c5c32a6959",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-0C6263BB3B7FBC67",
+          "source_file": "PLX_2025.pdf",
+          "source_pages": [
+            7,
+            70,
+            74
+          ],
+          "json_pointer": "/social/workforce_profile/total_employees",
+          "original_text": "là 19.367 người"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official Petrolimex Sustainability Report 2025 PDF (https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/f7544d67596046169c12cfa96afdc1e1/PLX%20BC%20PTBV%202025%20TV%200106.pdf), physical page 70 / printed spread 138-139; PDF SHA-256 480e348200bcb298e803c69d3477ccf00f2a261a5847f3273dd2dac53c967232. The Extract source_pages [7,70,74] are retained exactly; the quoted workforce paragraph and gender chart are on physical page 70. Rendered source image: docs/review/plx-2025-workforce-source-p70.png. 19,367 is the reported total CBCNV count, not 1,102 new hires or a share; proposed canonical role employees_total_count. Mapping remains candidate until human verification.",
+      "alias_id": "KG-S-01|workforce_profile_total_employees|employees_total_count",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    },
+    {
+      "annotation_id": "MAP-KG-S-01-CLM-6D11DAA742C071EE-employees_female_count",
+      "company_id": "PLX",
+      "report_id": "PLX:2025:ESG:unknown:PLX_2025_esg.json",
+      "record_id": "CLM-6D11DAA742C071EE",
+      "extract_path": "data/extract/esg/PLX_2025_esg.json",
+      "extract_sha256": "47e7846a4d6bb6db9a7de9816c032d1e489e9433d4d81fd8861301c5c32a6959",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-0CC95E74D7CDD6F2",
+          "source_file": "PLX_2025.pdf",
+          "source_pages": [
+            7,
+            70,
+            74
+          ],
+          "json_pointer": "/social/workforce_profile/by_gender/female/count",
+          "original_text": "NỮ                  5.847 người"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official Petrolimex Sustainability Report 2025 PDF (https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/f7544d67596046169c12cfa96afdc1e1/PLX%20BC%20PTBV%202025%20TV%200106.pdf), physical page 70 / printed spread 138-139; PDF SHA-256 480e348200bcb298e803c69d3477ccf00f2a261a5847f3273dd2dac53c967232. The Extract source_pages [7,70,74] are retained exactly; the quoted workforce paragraph and gender chart are on physical page 70. Rendered source image: docs/review/plx-2025-workforce-source-p70.png. 5,847 is the female workforce count, not the 35.8% female share among new hires; proposed canonical role employees_female_count. Mapping remains candidate until human verification.",
+      "alias_id": "KG-S-01|workforce_profile_by_gender_female_count|employees_female_count",
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    }
+  ],
+  "context_reviews": [
+    {
+      "annotation_id": "CTX-KG-S-01-CLM-63C08488CE814480",
+      "company_id": "PLX",
+      "report_id": "PLX:2025:ESG:unknown:PLX_2025_esg.json",
+      "record_id": "CLM-63C08488CE814480",
+      "extract_path": "data/extract/esg/PLX_2025_esg.json",
+      "extract_sha256": "47e7846a4d6bb6db9a7de9816c032d1e489e9433d4d81fd8861301c5c32a6959",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-0C6263BB3B7FBC67",
+          "source_file": "PLX_2025.pdf",
+          "source_pages": [
+            7,
+            70,
+            74
+          ],
+          "json_pointer": "/social/workforce_profile/total_employees",
+          "original_text": "là 19.367 người"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official Petrolimex Sustainability Report 2025 PDF (https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/f7544d67596046169c12cfa96afdc1e1/PLX%20BC%20PTBV%202025%20TV%200106.pdf), physical page 70 / printed spread 138-139; PDF SHA-256 480e348200bcb298e803c69d3477ccf00f2a261a5847f3273dd2dac53c967232. The Extract source_pages [7,70,74] are retained exactly; the quoted workforce paragraph and gender chart are on physical page 70. Rendered source image: docs/review/plx-2025-workforce-source-p70.png. The same paragraph fixes 31/12/2025 and Group plus 34 companies; its adjacent workforce-composition heading repeats that population. The gender chart reports male 13,520 and female 5,847 people, summing to 19,367; age bands 4,170 + 14,693 + 504 also sum to 19,367. Unit person and headcount are proposed from count-of-persons labels, not from an explicit FTE-methodology note. Reviewer must confirm that interpretation. Boundary is limited to the petroleum business segment, not the whole consolidated group. The annual period label is the source report grouping; measurement_date is the exact snapshot.",
+      "rule_id": "KG-S-01",
+      "fields": {
+        "observation_year": 2025,
+        "period_type": "annual",
+        "reporting_boundary": "Petroleum business segment: Petrolimex Group and 34 single-member Petrolimex LLCs",
+        "unit": "person",
+        "variant": "reported",
+        "metric_definition": "Count of CBCNV in the stated petroleum business segment as of 2025-12-31",
+        "scope": "employees in PLX petroleum business segment",
+        "population_id": "PLX 2025 petroleum business segment workforce: Group and 34 single-member LLCs",
+        "counting_method": "headcount",
+        "measurement_date": "2025-12-31"
+      },
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    },
+    {
+      "annotation_id": "CTX-KG-S-01-CLM-6D11DAA742C071EE",
+      "company_id": "PLX",
+      "report_id": "PLX:2025:ESG:unknown:PLX_2025_esg.json",
+      "record_id": "CLM-6D11DAA742C071EE",
+      "extract_path": "data/extract/esg/PLX_2025_esg.json",
+      "extract_sha256": "47e7846a4d6bb6db9a7de9816c032d1e489e9433d4d81fd8861301c5c32a6959",
+      "source_refs": [
+        {
+          "evidence_id": "EVD-0CC95E74D7CDD6F2",
+          "source_file": "PLX_2025.pdf",
+          "source_pages": [
+            7,
+            70,
+            74
+          ],
+          "json_pointer": "/social/workforce_profile/by_gender/female/count",
+          "original_text": "NỮ                  5.847 người"
+        }
+      ],
+      "status": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "review_basis": "Official Petrolimex Sustainability Report 2025 PDF (https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/f7544d67596046169c12cfa96afdc1e1/PLX%20BC%20PTBV%202025%20TV%200106.pdf), physical page 70 / printed spread 138-139; PDF SHA-256 480e348200bcb298e803c69d3477ccf00f2a261a5847f3273dd2dac53c967232. The Extract source_pages [7,70,74] are retained exactly; the quoted workforce paragraph and gender chart are on physical page 70. Rendered source image: docs/review/plx-2025-workforce-source-p70.png. The same paragraph fixes 31/12/2025 and Group plus 34 companies; its adjacent workforce-composition heading repeats that population. The gender chart reports male 13,520 and female 5,847 people, summing to 19,367; age bands 4,170 + 14,693 + 504 also sum to 19,367. Unit person and headcount are proposed from count-of-persons labels, not from an explicit FTE-methodology note. Reviewer must confirm that interpretation. Boundary is limited to the petroleum business segment, not the whole consolidated group. The annual period label is the source report grouping; measurement_date is the exact snapshot.",
+      "rule_id": "KG-S-01",
+      "fields": {
+        "observation_year": 2025,
+        "period_type": "annual",
+        "reporting_boundary": "Petroleum business segment: Petrolimex Group and 34 single-member Petrolimex LLCs",
+        "unit": "person",
+        "variant": "reported",
+        "metric_definition": "Female CBCNV count within the same petroleum business segment workforce as of 2025-12-31",
+        "scope": "employees in PLX petroleum business segment",
+        "population_id": "PLX 2025 petroleum business segment workforce: Group and 34 single-member LLCs",
+        "counting_method": "headcount",
+        "measurement_date": "2025-12-31"
+      },
+      "missing_fields": [
+        "reviewer",
+        "reviewed_at"
+      ]
+    }
+  ]
+}

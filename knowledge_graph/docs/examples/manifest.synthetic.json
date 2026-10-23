@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "SYNTHETIC_EXTRACT_GRAPH_CONTRACT_V1",
+  "synthetic_example": true,
+  "files": [
+    {
+      "path": "docs/examples/extract-esg.synthetic.json",
+      "company_id": "EXAMPLE",
+      "report_year": 2025,
+      "report_type": "ESG",
+      "reporting_entity": "unknown",
+      "coverage": "partial",
+      "sha256": "fbbb8b5b1707fb4413e8210e15f19628d75c4abc44e6411e25668a5a20597401",
+      "selection_status": "example_only"
+    },
+    {
+      "path": "docs/examples/extract-financial-separate.synthetic.json",
+      "company_id": "EXAMPLE",
+      "report_year": 2025,
+      "report_type": "Financial",
+      "reporting_entity": "Separate",
+      "coverage": "partial",
+      "sha256": "100b83ef4a7dcf1d0792887d00639524a45cddd272ac50b66821b75066b1d8ed",
+      "selection_status": "example_only"
+    },
+    {
+      "path": "docs/examples/extract-financial-consolidated.synthetic.json",
+      "company_id": "EXAMPLE",
+      "report_year": 2025,
+      "report_type": "Financial",
+      "reporting_entity": "Consolidated",
+      "coverage": "partial",
+      "sha256": "d0db1916dcc4d2ed9b7925ce0943966791237d8e0908b8c721eafd68631a096e",
+      "selection_status": "example_only"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/esg/rule-catalogue-schema-v0.1.json",
+  "title": "Structured rule catalogue",
+  "type": "object",
+  "required": ["schema_version", "scope_note", "rules"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "scope_note": {"type": "string", "minLength": 1},
+    "rules": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "rule_id", "engine_kind", "required_inputs", "applicability_conditions",
+          "not_run_conditions", "finding_policy", "basis"
+        ],
+        "properties": {
+          "rule_id": {"type": "string", "pattern": "^R0[1-9]$"},
+          "engine_kind": {"type": "string", "minLength": 1},
+          "required_inputs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["role", "metric_ids", "cardinality", "constraints"],
+              "properties": {
+                "role": {"type": "string", "minLength": 1},
+                "metric_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {"type": "string", "minLength": 1}
+                },
+                "cardinality": {"type": "string", "minLength": 1},
+                "constraints": {"type": "object"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "applicability_conditions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "not_run_conditions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "finding_policy": {
+            "type": "object",
+            "required": [
+              "comparison", "pass_status", "failure_status",
+              "missing_record_result", "null_value_status", "unverified_boundary_effect"
+            ],
+            "properties": {
+              "comparison": {"type": "string", "minLength": 1},
+              "pass_status": {"const": "Supported"},
+              "failure_status": {"enum": ["Contradicted", "NeedsReview"]},
+              "missing_record_result": {"const": "not_run_no_finding"},
+              "null_value_status": {"const": "InsufficientEvidence"},
+              "unverified_boundary_effect": {"type": "string", "minLength": 1},
+              "special_cases": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1}
+              }
+            },
+            "additionalProperties": false
+          },
+          "basis": {
+            "type": "object",
+            "required": [
+              "basis_type", "category", "description", "config_basis",
+              "standard_reference_ids"
+            ],
+            "properties": {
+              "basis_type": {
+                "enum": ["project_defined_reconciliation", "specific_standard_requirement"]
+              },
+              "category": {"type": "string", "minLength": 1},
+              "description": {"type": "string", "minLength": 1},
+              "config_basis": {"type": "string", "minLength": 1},
+              "standard_reference_ids": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1}
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

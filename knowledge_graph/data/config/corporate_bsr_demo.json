@@ -1,0 +1,19 @@
+{
+  "company_id": "BSR",
+  "arithmetic_rules": [
+    {"rule_id": "SUM-SCOPE1-SCOPE2", "relation": "sum_equals", "operand_metrics": [["ghg_scope1", "scope1_emissions"], ["ghg_scope2", "scope2_emissions"], ["scope1_plus_scope2_total"]]},
+    {"rule_id": "FEMALE-WITHIN-TOTAL", "relation": "subset", "operand_metrics": [["employees_female", "employees_female_count"], ["employees_total", "employees_total_count"]]},
+    {"rule_id": "INDEPENDENT-WITHIN-BOARD", "relation": "subset", "operand_metrics": [["board_independent", "board_independent_count"], ["board_total", "board_total_count"]]}
+  ],
+  "expected_reports": [
+    {"report_year": 2023, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2024, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2025, "report_type": "ESG", "financial_scope": null},
+    {"report_year": 2023, "report_type": "Financial", "financial_scope": "Separate"},
+    {"report_year": 2024, "report_type": "Financial", "financial_scope": "Separate"},
+    {"report_year": 2025, "report_type": "Financial", "financial_scope": "Separate"},
+    {"report_year": 2023, "report_type": "Financial", "financial_scope": "Consolidated"},
+    {"report_year": 2024, "report_type": "Financial", "financial_scope": "Consolidated"},
+    {"report_year": 2025, "report_type": "Financial", "financial_scope": "Consolidated"}
+  ]
+}

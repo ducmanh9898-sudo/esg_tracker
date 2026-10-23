@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/esg/pilot-readiness-inventory-schema-v0.1.json",
+  "title": "Pilot readiness inventory",
+  "type": "object",
+  "required": ["schema_version", "inventory_scope", "records", "bsr_financial_integration"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "inventory_scope": {"type": "string"},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "company_id", "company_name", "report_id", "report_year", "report_type",
+          "dimension", "claims", "reporting_period", "reporting_boundary",
+          "provenance", "temporal_comparability", "financial_disclosure_availability",
+          "standards_context", "status", "blockers", "pending_manual_review"
+        ],
+        "properties": {
+          "company_id": {"type": "string", "minLength": 1},
+          "company_name": {"type": "string", "minLength": 1},
+          "report_id": {"type": "string", "minLength": 1},
+          "report_year": {"type": "integer", "minimum": 2000, "maximum": 2100},
+          "report_type": {"type": "string", "minLength": 1},
+          "dimension": {"enum": ["E", "S", "G"]},
+          "claims": {
+            "type": "object",
+            "required": ["claim_count", "evidence_count", "has_claim", "claim_ids"],
+            "properties": {
+              "claim_count": {"type": "integer", "minimum": 0},
+              "evidence_count": {"type": "integer", "minimum": 0},
+              "has_claim": {"type": "boolean"},
+              "claim_ids": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          },
+          "reporting_period": {"type": "object"},
+          "reporting_boundary": {"type": "object"},
+          "provenance": {"type": "object"},
+          "temporal_comparability": {"type": "object"},
+          "financial_disclosure_availability": {"type": "object"},
+          "standards_context": {"type": "object"},
+          "status": {"enum": ["ready", "partial", "blocked"]},
+          "blockers": {"type": "array", "items": {"type": "string"}},
+          "pending_manual_review": {"type": "boolean"},
+          "source_manifests": {"type": "array", "items": {"type": "object"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "bsr_financial_integration": {"type": "object"}
+  },
+  "additionalProperties": false
+}

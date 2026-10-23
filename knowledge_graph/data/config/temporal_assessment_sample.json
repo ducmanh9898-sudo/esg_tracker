@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1",
+  "scope_note": "Small real-data sample only. Temporal links preserve provenance but do not create rule findings or assert inconsistency.",
+  "series": [
+    {
+      "series_id": "TS-BSR-BOARD-TOTAL-2023-2025",
+      "concept_id": "board_total",
+      "company_id": "BSR",
+      "metric_id": "board_total",
+      "claim_ids": [
+        "CLM-996445BD36AE",
+        "CLM-F698E79C8E8A",
+        "CLM-936FE665DA79"
+      ],
+      "comparison_mode": "consecutive_observation_years",
+      "known_limitations": [
+        "The normalized claims do not provide verified reporting boundaries.",
+        "Period type, baseline-change status and restatement status are not supplied.",
+        "Evidence source_text is null, so the original sentence cannot be reproduced from normalized input."
+      ]
+    }
+  ]
+}
